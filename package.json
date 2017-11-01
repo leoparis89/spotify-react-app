@@ -1,0 +1,42 @@
+{
+  "name": "boiler",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-eslint": "^8.0.1",
+    "css-loader": "^0.28.7",
+    "eslint": "^4.10.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-react": "^7.4.0",
+    "webpack-dev-server": "^2.9.3"
+  },
+  "scripts": {
+    "lint": "eslint ./src/**.js",
+    "dev": "webpack-dev-server -d"
+  },
+  "dependencies": {
+    "axios": "^0.17.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "boostrap": "^2.0.0",
+    "bootstrap": "^3.3.7",
+    "file-loader": "^1.1.5",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-router-dom": "^4.2.2",
+    "style-loader": "^0.19.0",
+    "underscore": "^1.8.3",
+    "webpack": "^3.8.1"
+  },
+  "babel": {
+    "presets": [
+      "react",
+      "env",
+      "stage-2"
+    ]
+  }
+}

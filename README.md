@@ -1,0 +1,1 @@
+A lean starter pack for starting your React application
