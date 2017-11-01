@@ -10,51 +10,51 @@ class Login extends React.Component {
 
   loginToSpotify = (e) => {
 
-    const client_id = '72d87e0820ae4f2e8794d583658d7d45'; // Your client id
-    const redirect_uri = 'http://localhost:3000/proxy'
+      const client_id = '72d87e0820ae4f2e8794d583658d7d45'; // Your client id
+      const redirect_uri = 'http://localhost:8080/proxy';
 
-    function getLoginURL(scopes) {
-      return 'https://accounts.spotify.com/authorize?client_id=' + client_id +
+      function getLoginURL(scopes) {
+          return 'https://accounts.spotify.com/authorize?client_id=' + client_id +
         '&redirect_uri=' + encodeURIComponent(redirect_uri) +
         '&scope=' + encodeURIComponent(scopes.join(' ')) +
         '&response_type=token';
-    }
+      }
 
-    let url = getLoginURL([
-      'user-read-email'
-    ]);
+      let url = getLoginURL([
+          'user-read-email'
+      ]);
 
-    /* eslint-disable */
+      /* eslint-disable */
     let width = 450,
       height = 730,
       left = (screen.width / 2) - (width / 2),
       top = (screen.height / 2) - (height / 2);
     /* eslint-enable */
 
-    let handleMessage = (event) => {
-      console.log(event);
-      var hash = JSON.parse(event.data);
-      if (hash.type == 'access_token') {
-        storage.setToken(hash.access_token)
-        window.removeEventListener("message", handleMessage, true);
-        this.props.loginSuccessfull();
-        this.props.history.push('/search')
-      }
-    }
+      let handleMessage = (event) => {
+          console.log(event);
+          var hash = JSON.parse(event.data);
+          if (hash.type == 'access_token') {
+              storage.setToken(hash.access_token);
+              window.removeEventListener('message', handleMessage, true);
+              this.props.loginSuccessfull();
+              this.props.history.push('/search');
+          }
+      };
 
-    window.addEventListener("message", handleMessage, true);
-    window.open(url,
-      'Spotify',
-      'menubar=no,location=no,resizable=no,scrollbars=no,status=no, width=' + width + ', height=' + height + ', top=' + top + ', left=' + left
-    );
+      window.addEventListener('message', handleMessage, true);
+      window.open(url,
+          'Spotify',
+          'menubar=no,location=no,resizable=no,scrollbars=no,status=no, width=' + width + ', height=' + height + ', top=' + top + ', left=' + left
+      );
   }
 
   render() {
-    return (
-      <button className="btn " onClick={this.loginToSpotify}>
+      return (
+          <button className="btn " onClick={this.loginToSpotify}>
         Log in to Spotify
-            </button>
-    );
+          </button>
+      );
   }
 }
 
