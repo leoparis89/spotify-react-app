@@ -4,7 +4,7 @@ module.exports = {
     entry: './src/Index.js',
     output: {
         path: path.resolve('build/js'),
-        publicPath: '/public/assets/js/',
+        publicPath: '/js',
         filename: 'bundle.js'
     },
     devServer: {
