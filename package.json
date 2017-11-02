@@ -14,7 +14,7 @@
     "lint": "eslint ./src/**.js",
     "dev": "webpack-dev-server -d",
     "build": "webpack -p && cp public/index.html build/",
-    "start": "node server/app.js"
+    "start": "yarn build && node server/app.js"
   },
   "dependencies": {
     "axios": "^0.17.0",
