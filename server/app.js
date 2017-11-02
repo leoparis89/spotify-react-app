@@ -9,6 +9,6 @@ app.use(express.static(dir));
 app.get('*', function(req, res) {
     res.sendFile(path.resolve(dir + '/index.html'));
 });
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
     console.log('listening on port ' + port);
 });
