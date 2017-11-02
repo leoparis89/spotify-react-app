@@ -17,7 +17,7 @@ class Proxy extends React.Component {
               type: 'access_token',
               access_token: hash.access_token,
               expires_in: hash.expires_in || 0
-          }), 'http://localhost:8080');
+          }), window.location.origin);
           window.close();
       }
   }

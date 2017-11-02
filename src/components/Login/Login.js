@@ -11,7 +11,7 @@ class Login extends React.Component {
   loginToSpotify = (e) => {
 
       const client_id = '72d87e0820ae4f2e8794d583658d7d45'; // Your client id
-      const redirect_uri = 'http://localhost:8080/proxy';
+      const redirect_uri = window.location.origin + '/proxy';
 
       function getLoginURL(scopes) {
           return 'https://accounts.spotify.com/authorize?client_id=' + client_id +
