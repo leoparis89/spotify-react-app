@@ -16,6 +16,12 @@ class SpotifyService {
                 });
             });
     }
+
+
+    getArtistAlbums(id) {
+        return authHttp.get(`https://api.spotify.com/v1/artists/${id}/albums`);
+    };
 }
+
 
 export const spotifyService = new SpotifyService();

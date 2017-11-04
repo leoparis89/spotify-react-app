@@ -63,6 +63,7 @@ class Search extends React.Component {
                 <button onClick={this.increment}>offset </button>
                 <div className="row">
                     {this.state.artists.map((artist) => {
+                        console.log(artist);
                         return <ArtistCard key={artist.id} artist={artist} />;
                     })}
                 </div>
