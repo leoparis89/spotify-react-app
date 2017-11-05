@@ -8,13 +8,15 @@
     "eslint": "^4.10.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-react": "^7.4.0",
+    "jest": "^21.2.1",
     "webpack-dev-server": "^2.9.3"
   },
   "scripts": {
     "lint": "eslint ./src/**.js",
     "dev": "webpack-dev-server -d",
     "build": "webpack -p && cp public/index.html build/",
-    "start": "yarn build && node server/app.js"
+    "start": "yarn build && node server/app.js",
+    "test": "jest --watch"
   },
   "dependencies": {
     "axios": "^0.17.0",
