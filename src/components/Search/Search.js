@@ -1,7 +1,6 @@
 import React from 'react';
-import { authHttp } from '../../services/authHttp/authHttp';
 import * as _ from 'underscore';
-import { spotifyService } from '../../services/spotify/spotify';
+import { searchArtist } from '../../services/spotify/spotify';
 import ArtistCard from '../ArtistCard/ArtistCard';
 
 class Search extends React.Component {
@@ -32,7 +31,7 @@ class Search extends React.Component {
     }
 
     search() {
-        spotifyService.searchArtist(this.state.query, this.state.offset).then(artists => {
+        searchArtist(this.state.query, this.state.offset).then(artists => {
             this.setState(prevState => {
                 return Object.assign(prevState, { artists: prevState.artists.concat(artists) });
             });

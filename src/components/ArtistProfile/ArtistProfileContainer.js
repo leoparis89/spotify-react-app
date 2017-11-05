@@ -1,5 +1,5 @@
 import React from 'react';
-import { spotifyService } from '../../services/spotify/spotify';
+import { getArtistAlbums } from '../../services/spotify/spotify';
 
 class ArtistProfileContainer extends React.Component {
     state = {
@@ -7,11 +7,11 @@ class ArtistProfileContainer extends React.Component {
     }
 
     componentDidMount() {
-        const id = this.props.match.params.artistId
-        spotifyService.getArtistAlbums(id).then(artist => {
-            debugger
+        const id = this.props.match.params.artistId;
+        getArtistAlbums(id).then(artist => {
+
         }).catch(err => {
-            debugger
+
         });
     }
 
