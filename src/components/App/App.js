@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Redirect } from 'react-router-dom';
 import Login from '../Login/Login';
 import Proxy from '../Proxy/Proxy';
 import Search from '../Search/Search';
@@ -30,16 +30,19 @@ class App extends Component {
     }
 
     render() {
+        const { isLoggedIn } = this.state;
         return (
             <Router>
                 <div className="App">
-                    <PublicRoute authed={this.state.isLoggedIn} path='/login' component={Login}
-                        loginSuccessfull={this.updateLoginState}
-                    />
-                    <PublicRoute authed={this.state.isLoggedIn} path='/proxy' component={Proxy} />
-                    <PrivateRoute authed={this.state.isLoggedIn} path='/search' component={Search} />
-                    <PrivateRoute authed={this.state.isLoggedIn} path='/artist/:artistId' component={ArtistProfileContainer} />
-                    <PrivateRoute authed={this.state.isLoggedIn} path='/' exact component={Search} />``
+                    <Switch>
+                        <PublicRoute authed={isLoggedIn} path='/login' component={Login}
+                            loginSuccessfull={this.updateLoginState}
+                        />
+                        <PublicRoute authed={isLoggedIn} path='/proxy' component={Proxy} />
+                        <PrivateRoute authed={isLoggedIn} path='/search' component={Search} />
+                        <PrivateRoute authed={isLoggedIn} path='/artist/:artistId' component={ArtistProfileContainer} />
+                        <Redirect to='/search' />
+                    </Switch>
                 </div>
             </Router>
         );
