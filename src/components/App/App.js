@@ -9,10 +9,11 @@ import PublicRoute from '../RouteContainers/PublicRoute';
 import { authentication } from '../../services/authentication/authentication';
 import ArtistProfileContainer from '../ArtistProfile/ArtistProfileContainer';
 import { Provider } from 'react-redux';
-import spotifyApp from '../../redux/reducers';
-import { createStore } from 'redux';
-let store = createStore(spotifyApp);
-
+// import spotifyApp from '../../redux/reducers';
+// import { createStore } from 'redux';
+import configureStore from '../../redux/configureStore';
+let store = configureStore({artists: []});
+import DevTools from '../../containers/DevTools';
 
 class App extends Component {
 
@@ -49,8 +50,11 @@ class App extends Component {
                             <PrivateRoute authed={isLoggedIn} path='/artist/:artistId' component={ArtistProfileContainer} />
                             <Redirect to='/search' />
                         </Switch>
+                        <DevTools />
                     </div>
+                 
                 </Router>
+                {/* */}
             </Provider>
         );
     }

@@ -12,9 +12,9 @@ function artists(state = [], action) {
     }
 }
 
-const spotifyApp = combineReducers({
+const rootReducer = combineReducers({
     artists
     // todos
 });
 
-export default spotifyApp;
+export default rootReducer;
