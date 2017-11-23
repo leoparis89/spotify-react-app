@@ -8,17 +8,11 @@ import PrivateRoute from '../RouteContainers/PrivateRoute';
 import PublicRoute from '../RouteContainers/PublicRoute';
 import { authentication } from '../../services/authentication/authentication';
 import ArtistProfileContainer from '../ArtistProfile/ArtistProfileContainer';
-import { Provider } from 'react-redux';
-// import spotifyApp from '../../redux/reducers';
-// import { createStore } from 'redux';
-import configureStore from '../../redux/configureStore';
-let store = configureStore({artists: []});
-import DevTools from '../../containers/DevTools';
 
 class App extends Component {
 
     state = {
-        isLoggedIn: authentication.isLoggedIn()
+      isLoggedIn: authentication.isLoggedIn()
     }
 
     isLoggedIn() {
@@ -26,9 +20,9 @@ class App extends Component {
     }
 
     updateLoginState = () => {
-        this.setState(() => ({
-            isLoggedIn: authentication.isLoggedIn()
-        }));
+      this.setState(() => ({
+        isLoggedIn: authentication.isLoggedIn()
+      }));
     }
 
 
@@ -36,30 +30,22 @@ class App extends Component {
     }
 
     render() {
-        const { isLoggedIn } = this.state;
-        return (
-            <Provider store={store}>
-                <div>
-                    <Router>
-                        <div className="App">
-                            <Switch>
-                                <PublicRoute authed={isLoggedIn} path='/login' component={Login}
-                                    loginSuccessfull={this.updateLoginState}
-                                />
-                                <PublicRoute authed={isLoggedIn} path='/proxy' component={Proxy} />
-                                <PrivateRoute authed={isLoggedIn} path='/search' component={Search} />
-                                <PrivateRoute authed={isLoggedIn} path='/artist/:artistId' component={ArtistProfileContainer} />
-                                <Redirect to='/search' />
-                            </Switch>
- 
-                        </div>
-                 
-                    </Router>
-                    <DevTools />
-                </div>
-                {/* */}
-            </Provider>
-        );
+      const { isLoggedIn } = this.state;
+      return (
+        <Router>
+          <div className="App">
+            <Switch>
+              <PublicRoute authed={isLoggedIn} path='/login' component={Login}
+                loginSuccessfull={this.updateLoginState}
+              />
+              <PublicRoute authed={isLoggedIn} path='/proxy' component={Proxy} />
+              <PrivateRoute authed={isLoggedIn} path='/search' component={Search} />
+              <PrivateRoute authed={isLoggedIn} path='/artist/:artistId' component={ArtistProfileContainer} />
+              <Redirect to='/search' />
+            </Switch>
+          </div>                
+        </Router>
+      );
     }
 }
 
