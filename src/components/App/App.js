@@ -3,7 +3,7 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Redirect } from 'react-router-dom';
 import Login from '../Login/Login';
 import Proxy from '../Proxy/Proxy';
-import Search from '../Search/Search';
+import SearchArtist from '../../containers/SearchArtist/SearchArtist'; 
 import PrivateRoute from '../RouteContainers/PrivateRoute';
 import PublicRoute from '../RouteContainers/PublicRoute';
 import { authentication } from '../../services/authentication/authentication';
@@ -39,7 +39,7 @@ class App extends Component {
                 loginSuccessfull={this.updateLoginState}
               />
               <PublicRoute authed={isLoggedIn} path='/proxy' component={Proxy} />
-              <PrivateRoute authed={isLoggedIn} path='/search' component={Search} />
+              <PrivateRoute authed={isLoggedIn} path='/search' component={SearchArtist} />
               <PrivateRoute authed={isLoggedIn} path='/artist/:artistId' component={ArtistProfileContainer} />
               <Redirect to='/search' />
             </Switch>
