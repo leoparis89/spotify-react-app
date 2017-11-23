@@ -1,6 +1,5 @@
 import React from 'react';
 import * as _ from 'underscore';
-import { searchArtist } from '../../services/spotify/spotify';
 import ArtistCard from '../ArtistCard/ArtistCard';
 
 class Search extends React.Component {
