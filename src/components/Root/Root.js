@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+// import './App.css';
 import { BrowserRouter as Router, Switch, Redirect } from 'react-router-dom';
 import Login from '../Login/Login';
 import Proxy from '../Proxy/Proxy';
@@ -15,7 +15,7 @@ import configureStore from '../../redux/configureStore';
 let store = configureStore({artists: []});
 import DevTools from '../../containers/DevTools';
 
-class App extends Component {
+class Root extends Component {
 
     state = {
         isLoggedIn: authentication.isLoggedIn()
@@ -63,4 +63,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default Root;
