@@ -1,6 +1,7 @@
 import React from 'react';
 import * as _ from 'underscore';
 import ArtistCard from '../ArtistCard/ArtistCard';
+import PropTypes from 'prop-types';
 
 class Search extends React.Component {
   state = {
@@ -54,3 +55,8 @@ class Search extends React.Component {
 }
 
 export default Search;
+
+Search.propTypes = {
+  search: PropTypes.func,
+  artists: PropTypes.array
+};
