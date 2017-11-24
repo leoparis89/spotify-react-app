@@ -1,14 +1,14 @@
 import {
-  SEARCH_ARTISTS, SEARCH_ARTISTS_COMPLETE
+  SET_QUERY, SEARCH_ARTISTS_COMPLETE
 } from './actions';
 import { combineReducers } from 'redux';
 
-function search(state = [], action) {
+function search(state = {}, action) {
   switch (action.type) {
-  case SEARCH_ARTISTS_COMPLETE:
-    return action.search;
-  default:
-    return state;
+    case SET_QUERY:
+      return { query: action.query };
+    default:
+      return state;
   }
 }
 

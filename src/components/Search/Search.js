@@ -10,7 +10,7 @@ class Search extends React.Component {
 
   delayedCallback = _.debounce((event) => {
     const artistName = event.target.value;
-    this.props.search(artistName);
+    this.props.setQuery(artistName);
   }, 1000);
 
   componentDidMount() {
@@ -57,6 +57,6 @@ class Search extends React.Component {
 export default Search;
 
 Search.propTypes = {
-  search: PropTypes.func,
+  setQuery: PropTypes.func,
   artists: PropTypes.array
 };

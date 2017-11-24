@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { searchArtists } from '../../redux/actions';
+import {  setQuery } from '../../redux/actions';
 import Search from '../../components/Search/Search';
 
 const mapStateToProps = (state, ownProps) => {
@@ -10,8 +10,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    search: (artist) => {
-      dispatch(searchArtists(artist));
+    setQuery: (query) => {
+      dispatch(setQuery(query));
     }
   };
 };
