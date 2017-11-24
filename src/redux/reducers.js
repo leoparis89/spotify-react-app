@@ -3,17 +3,17 @@ import {
 } from './actions';
 import { combineReducers } from 'redux';
 
-function artists(state = [], action) {
+function search(state = [], action) {
   switch (action.type) {
   case SEARCH_ARTISTS_COMPLETE:
-    return action.artists;
+    return action.search;
   default:
     return state;
   }
 }
 
 const rootReducer = combineReducers({
-  artists
+  search
 });
 
 export default rootReducer;

@@ -44,10 +44,10 @@ class Search extends React.Component {
           className="form-control" id="usr" />
         <button onClick={this.increment}>offset </button>
         <div className="row">
-          {this.props.artists.map((artist) => {
+          {/* {this.props.artists.map((artist) => {
             console.log(artist);
             return <ArtistCard key={artist.id} artist={artist} />;
-          })}
+          })} */}
         </div>
       </div>
     );

@@ -4,7 +4,7 @@ import Search from '../../components/Search/Search';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    artists: state.artists
+    search: state.search
   };
 };
 
