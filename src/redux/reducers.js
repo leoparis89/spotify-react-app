@@ -5,15 +5,16 @@ import { combineReducers } from 'redux';
 
 const initialState = {
   results: [],
-  query: null
+  query: null,
+  offset: 0
 };
 
 function search(state = initialState  , action) {
   switch (action.type) {
   case SET_QUERY:
-    return { query: action.query, results: [] };
+    return { query: action.query, offset: 0, results: [] };
   case SEARCH_ARTISTS_COMPLETE:
-    return {...state, results: action.results};
+    return {...state, offset: state.offset + 20, results: action.results};
   default:
     return state;
   }

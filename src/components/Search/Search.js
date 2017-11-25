@@ -35,6 +35,8 @@ class Search extends React.Component {
     return (
       <div className="form-group text-center">
         <label>Search !</label>
+        <h1>{this.props.query}</h1>
+        <h2>{this.props.offset}</h2>
         <input type="text"
           onChange={this.onChange}
           className="form-control" id="usr" />
@@ -56,5 +58,7 @@ Search.propTypes = {
   setQuery
   : PropTypes.func,
   search: PropTypes.func,     
-  results: PropTypes.array
+  results: PropTypes.array,
+  query: PropTypes.string,
+  offset: PropTypes.number
 };

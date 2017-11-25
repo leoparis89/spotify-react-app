@@ -5,7 +5,8 @@ import Search from '../../components/Search/Search';
 const mapStateToProps = (state, ownProps) => {
   return {
     query: state.search.query,
-    results: state.search.results    
+    results: state.search.results,
+    offset:  state.search.offset
   };
 };
 
