@@ -11,6 +11,7 @@ class Search extends React.Component {
   delayedCallback = _.debounce((event) => {
     const artistName = event.target.value;
     this.props.setQuery(artistName);
+    this.props.search(artistName);
   }, 1000);
 
   componentDidMount() {
@@ -27,12 +28,7 @@ class Search extends React.Component {
   }
 
   increment = () => {
-    this.setState(prevState => {
-      return Object.assign(prevState, {
-        offset: prevState.offset + 20
-      });
-    },
-    () => this.search());
+    debugger;
   }
 
   render() {
@@ -44,10 +40,10 @@ class Search extends React.Component {
           className="form-control" id="usr" />
         <button onClick={this.increment}>offset </button>
         <div className="row">
-          {/* {this.props.artists.map((artist) => {
+          {this.props.results.map((artist) => {
             console.log(artist);
             return <ArtistCard key={artist.id} artist={artist} />;
-          })} */}
+          })}
         </div>
       </div>
     );
@@ -57,6 +53,8 @@ class Search extends React.Component {
 export default Search;
 
 Search.propTypes = {
-  setQuery: PropTypes.func,
-  artists: PropTypes.array
+  setQuery
+  : PropTypes.func,
+  search: PropTypes.func,     
+  results: PropTypes.array
 };

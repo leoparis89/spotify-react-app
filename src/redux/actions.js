@@ -11,16 +11,16 @@ export const SEARCH_ARTISTS_FAILED = 'SEARCH_ARTISTS_FAILED';
 
 export function searchArtists(query) {
   return dispatch => {
-    searchArtist(query).then(artists => {
-      dispatch(searchArtistsComplete(artists));
+    searchArtist(query).then(results => {
+      dispatch(searchArtistsComplete(results));
     }).catch(err => {
       dispatch(searchArtistsFailed(err));
     });
   };
 }
 
-export function searchArtistsComplete(artists) {
-  return { type: SEARCH_ARTISTS_COMPLETE, artists };
+export function searchArtistsComplete(results) {
+  return { type: SEARCH_ARTISTS_COMPLETE, results };
 }
 
 export function searchArtistsFailed(error) {

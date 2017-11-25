@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
-import {  setQuery } from '../../redux/actions';
+import { setQuery, searchArtists } from '../../redux/actions';
 import Search from '../../components/Search/Search';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    search: state.search
+    query: state.search.query,
+    results: state.search.results    
   };
 };
 
@@ -12,6 +13,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     setQuery: (query) => {
       dispatch(setQuery(query));
+    },
+    search: (query) => {
+      dispatch(searchArtists(query));
     }
   };
 };
