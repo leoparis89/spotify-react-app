@@ -14,7 +14,7 @@ function search(state = initialState  , action) {
   case SET_QUERY:
     return { query: action.query, offset: 0, results: [] };
   case SEARCH_ARTISTS_COMPLETE:
-    return {...state, offset: state.offset + 20, results: action.results};
+    return {...state, offset: state.offset + 20, results: state.results.concat(action.results)};
   default:
     return state;
   }

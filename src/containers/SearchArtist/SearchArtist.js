@@ -5,9 +5,9 @@ import Search from '../../components/Search/Search';
 const mapStateToProps = (state, ownProps) => {
   return {
     query: state.search.query,
-    results: state.search.results,
+    results: state.search.results ,
     offset:  state.search.offset
-  };
+  };  
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
@@ -15,8 +15,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     setQuery: (query) => {
       dispatch(setQuery(query));
     },
-    search: (query) => {
-      dispatch(searchArtists(query));
+    search: (query, offset) => {
+      dispatch(searchArtists(query, offset));
     }
   };
 };

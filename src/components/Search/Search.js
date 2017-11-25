@@ -28,7 +28,8 @@ class Search extends React.Component {
   }
 
   increment = () => {
-    debugger;
+    const {search, query, offset} = this.props;
+    search(query, offset);
   }
 
   render() {

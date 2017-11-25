@@ -9,9 +9,9 @@ export const SET_QUERY = 'SET_QUERY';
 export const SEARCH_ARTISTS_COMPLETE = 'SEARCH_ARTISTS_COMPLETE';
 export const SEARCH_ARTISTS_FAILED = 'SEARCH_ARTISTS_FAILED';
 
-export function searchArtists(query) {
+export function searchArtists(query, offset) {
   return dispatch => {
-    searchArtist(query).then(results => {
+    searchArtist(query, offset).then(results => {
       dispatch(searchArtistsComplete(results));
     }).catch(err => {
       dispatch(searchArtistsFailed(err));
