@@ -7,7 +7,8 @@ import SearchArtist from '../../containers/SearchArtist/SearchArtist';
 import PrivateRoute from '../RouteContainers/PrivateRoute';
 import PublicRoute from '../RouteContainers/PublicRoute';
 import { authentication } from '../../services/authentication/authentication';
-import ArtistProfileContainer from '../ArtistProfile/ArtistProfileContainer';
+// import ArtistProfileContainer from '../ArtistProfile/ArtistProfileContainer';
+import ArtistProfile from '../../containers/ArtistProfile/ArtistProfile';
 
 class App extends Component {
 
@@ -40,7 +41,7 @@ class App extends Component {
               />
               <PublicRoute authed={isLoggedIn} path='/proxy' component={Proxy} />
               <PrivateRoute authed={isLoggedIn} path='/search' component={SearchArtist} />
-              <PrivateRoute authed={isLoggedIn} path='/artist/:artistId' component={ArtistProfileContainer} />
+              <PrivateRoute authed={isLoggedIn} path='/artist/:artistId' component={ArtistProfile} />
               <Redirect to='/search' />
             </Switch>
           </div>                

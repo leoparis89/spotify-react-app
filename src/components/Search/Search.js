@@ -44,7 +44,7 @@ class Search extends React.Component {
         <button onClick={this.increment}>offset </button>
         <div className="row">
           {this.props.results.map((artist) => {
-            console.log(artist);
+            console.log(artist.id);
             return <ArtistCard key={artist.id} artist={artist} />;
           })}
         </div>
