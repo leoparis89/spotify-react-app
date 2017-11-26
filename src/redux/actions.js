@@ -6,17 +6,23 @@ import { searchArtist } from '../services/spotify/spotify';
 
 export const SEARCH_ARTISTS = 'SEARCH_ARTISTS';
 export const SET_QUERY = 'SET_QUERY';
+export const SEARCH_ARTISTS_START = 'SEARCH_ARTISTS_START';
 export const SEARCH_ARTISTS_COMPLETE = 'SEARCH_ARTISTS_COMPLETE';
 export const SEARCH_ARTISTS_FAILED = 'SEARCH_ARTISTS_FAILED';
 
 export function searchArtists(query, offset) {
   return dispatch => {
+    dispatch(searchArtistsStart());
     searchArtist(query, offset).then(results => {
       dispatch(searchArtistsComplete(results));
     }).catch(err => {
       dispatch(searchArtistsFailed(err));
     });
   };
+}
+
+export function searchArtistsStart() {
+  return { type: SEARCH_ARTISTS_START };
 }
 
 export function searchArtistsComplete(results) {
