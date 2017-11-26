@@ -3,7 +3,10 @@ import React from 'react';
 const ArtistProfile = (props) => {
   return (
     <div>
-            {console.log(props)}
+      <h1>{props.artist.name}</h1>
+      <img src={props.artist.image}
+        className="img-responsive"
+        alt={props.artist.name} />
     </div>
   );
 };
