@@ -1,13 +1,21 @@
 import React from 'react';
 
 const ArtistProfile = (props) => {
+
+  var divStyle = {
+    backgroundImage: 'url(' + props.artist.image + ')'
+    // WebkitTransition: 'all', // note the capital 'W' here
+    // msTransition: 'all' // 'ms' is the only lowercase vendor prefix
+  };
+
+
   return (
     <div>
-      <h1>{props.artist.name}</h1>
-      <img src={props.artist.image}
-        className="img-responsive"
-        alt={props.artist.name} />
-    </div>
+      <div className="jumbotron"
+        style={divStyle}
+      ><h1>{props.artist.name}</h1>
+      </div>
+    </div >
   );
 };
 
