@@ -1,16 +1,14 @@
 import React from 'react';
 
 class SearchBox extends React.Component {
-
     searchArtist = (e) => {
-        debugger
-        this.props.searchArtist(e.target.value)
+      this.props.searchArtist(e.target.value);
     }
 
     render() {
-        return (
-            <input onChange={this.searchArtist}></input>
-        );
+      return (
+        <input onChange={this.searchArtist}></input>
+      );
     }
 }
 
