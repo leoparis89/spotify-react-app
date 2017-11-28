@@ -35,6 +35,9 @@ class Login extends React.Component {
         console.log(hash);
         if (hash.type == 'access_token') {
           storage.setToken(hash.access_token);
+          const epochDateInSec = Math.floor(new Date().valueOf() / 1000);
+          storage.setLoginDate(epochDateInSec);
+
           window.removeEventListener('message', handleMessage, true);
           this.props.loginSuccessfull();
           this.props.history.push('/search');
