@@ -2,7 +2,7 @@
  * action types
  */
 
-import { searchArtist } from '../services/spotify/spotify';
+import { searchArtists as searchArtistsFunc } from '../services/spotify/spotify';
 
 export const SEARCH_ARTISTS = 'SEARCH_ARTISTS';
 export const SET_QUERY = 'SET_QUERY';
@@ -13,7 +13,7 @@ export const SEARCH_ARTISTS_FAILED = 'SEARCH_ARTISTS_FAILED';
 export function searchArtists(query, offset) {
   return dispatch => {
     dispatch(searchArtistsStart());
-    searchArtist(query, offset).then(results => {
+    searchArtistsFunc(query, offset).then(results => {
       dispatch(searchArtistsComplete(results));
     }).catch(err => {
       dispatch(searchArtistsFailed(err));

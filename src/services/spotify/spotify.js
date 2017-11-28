@@ -8,7 +8,7 @@ export const _buildSearchArtistUrl = (artistName, offset = 0) => {
   return 'https://api.spotify.com/v1/search?' + searchParams.toString();
 };
 
-export const searchArtist = (artistName, offset = 0) => {
+export const searchArtists = (artistName, offset = 0) => {
   return authGet(_buildSearchArtistUrl(artistName, offset))
     .then((res) => {
       return res.data.artists.items.map(artist => {
