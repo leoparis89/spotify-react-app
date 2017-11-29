@@ -1,5 +1,5 @@
-import {search} from './reducers/rootReducer';
-import  * as actions from './actions';
+import {search} from './searchReducer';
+import  * as actions from '../actions';
 
 test('it should create initial state', () => {
   const expected = {
