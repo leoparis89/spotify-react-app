@@ -3,10 +3,6 @@ import { withRouter } from 'react-router-dom';
 
 import { storage } from '../../services/storage/storage';
 class Login extends React.Component {
-
-    loginSuccessfull = () => {
-    }
-
     loginToSpotify = (e) => {
       const client_id = '72d87e0820ae4f2e8794d583658d7d45'; // Your client id
       const redirect_uri = window.location.origin + '/proxy';
