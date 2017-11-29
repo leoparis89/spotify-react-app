@@ -6,14 +6,22 @@ import {MemoryRouter} from 'react-router';
 
 describe('Artist card', () => {
     
-  it('renders correctly', () => {
-    const element = renderer.create(
-      <MemoryRouter>
-        <ArtistCard artist={{id: 5, name: 'cool', image: 'http://bar'}}/>
-      </MemoryRouter>
-    );
+  const testProps = {
+    artist: {
+      id:9,
+      name:'metallica',
+      image: 'htpp://foobar'
+    }
+  };
 
-    console.log(element);
+  it('renders correctly', () => {
+    const tree = renderer.create(
+      <MemoryRouter>
+        <ArtistCard {...testProps}/>
+      </MemoryRouter>
+    ).toJSON();
+
+    expect(tree).toMatchSnapshot();
   });
     
 });

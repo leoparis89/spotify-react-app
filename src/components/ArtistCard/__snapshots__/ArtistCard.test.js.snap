@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Artist card renders correctly 1`] = `
+<a
+  href="artist/9"
+  onClick={[Function]}
+>
+  <div
+    className="col-md-3"
+  >
+    <h3>
+      metallica
+    </h3>
+    <div
+      className="image"
+    >
+      <img
+        alt="metallica"
+        className="img-responsive"
+        src="htpp://foobar"
+      />
+    </div>
+  </div>
+</a>
+`;
