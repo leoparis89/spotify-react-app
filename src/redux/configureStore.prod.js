@@ -1,5 +1,5 @@
 import { createStore, compose, applyMiddleware } from 'redux';
-import rootReducer from './reducers';
+import rootReducer from './reducers/rootReducer';
 import thunk from 'redux-thunk';
 
 const enhancer = compose(
@@ -16,8 +16,8 @@ export default function configureStore(initialState) {
 
   // Hot reload reducers (requires Webpack or Browserify HMR to be enabled)
   if (module.hot) {
-    module.hot.accept('./reducers', () =>
-      store.replaceReducer(require('./reducers')/*.default if you use Babel 6+ */)
+    module.hot.accept('./reducers/rootReducer.js', () =>
+      store.replaceReducer(require('./reducers/rootReducer.js')/*.default if you use Babel 6+ */)
     );
   }
 

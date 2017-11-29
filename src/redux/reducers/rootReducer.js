@@ -1,15 +1,15 @@
 import {
   SET_QUERY, SEARCH_ARTISTS_START, SEARCH_ARTISTS_COMPLETE
-} from './actions';
+} from '../actions';
 import { combineReducers } from 'redux';
-
+  
 const initialState = {
   results: [],
   query: null,
   offset: 0,
   loading: false
 };
-
+  
 export function search(state = initialState, action) {
   switch (action.type) {
   case SET_QUERY:
@@ -27,9 +27,9 @@ export function search(state = initialState, action) {
     return state;
   }
 }
-
+  
 const rootReducer = combineReducers({
   search
 });
-
+  
 export default rootReducer;

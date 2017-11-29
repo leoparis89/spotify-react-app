@@ -1,4 +1,4 @@
-import {search} from './reducers';
+import {search} from './reducers/rootReducer';
 import  * as actions from './actions';
 
 test('it should create initial state', () => {
