@@ -10,7 +10,7 @@ const initialState = {
   loading: false
 };
 
-function search(state = initialState, action) {
+export function search(state = initialState, action) {
   switch (action.type) {
   case SET_QUERY:
     return { query: action.query, offset: 0, results: [] };
