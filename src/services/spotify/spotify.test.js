@@ -1,5 +1,0 @@
-import { _buildSearchArtistUrl } from './spotify';
-
-test('adds 1 + 2 to equal 3', () => {
-    expect(1).toEqual(1);
-});
