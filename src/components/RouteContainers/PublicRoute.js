@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 
 const mapStateToProps = (state, ownProps) => {
-  
   return {
     isloggedIn: state.session.isLoggedIn
   };  
@@ -31,23 +30,6 @@ class PublicRoute extends React.Component {
     );
   }
 }
-
-// export default;
-
-
-
-// function PublicRoute({ component: Component, authed, loginSuccessfull, ...rest }) {
-//   return (
-//     <Route
-//       {...rest}
-//       render={(props) =>
-//         !authed ?
-//           <Component {...props} loginSuccessfull={loginSuccessfull} />
-//           :
-//           <Redirect to={{ pathname: '/search', state: { from: props.location } }} />}
-//     />
-//   );
-// }
 
 
 export default connect(
