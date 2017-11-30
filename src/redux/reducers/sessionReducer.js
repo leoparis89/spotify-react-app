@@ -14,7 +14,7 @@ export function session(state = initialState, action) {
     return { state};
   case LOGIN_COMPLETE:
     return {
-      ...state,
+      ...state.session,
       isLoggedIn: true
     };
   default:
