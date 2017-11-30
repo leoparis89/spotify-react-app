@@ -7,20 +7,20 @@ class ArtistProfileContainer extends React.Component {
     }
 
     componentDidMount() {
-        const id = this.props.match.params.artistId;
-        getArtistAlbums(id).then(artist => {
+      const id = this.props.match.params.artistId;
+      getArtistAlbums(id).then(artist => {
 
-        }).catch(err => {
+      }).catch(err => {
 
-        });
+      });
     }
 
     render() {
-        return (
-            <div>
+      return (
+        <div>
                 bar
-            </div>
-        );
+        </div>
+      );
     }
 }
 

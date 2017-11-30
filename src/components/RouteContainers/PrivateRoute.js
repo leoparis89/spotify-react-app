@@ -17,14 +17,19 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
 class PrivateRoute extends React.Component {
   render() {
-    const { component: Component, isloggedIn } = this.props;
+    const { component: Component, isloggedIn, ...rest } = this.props;
+    
     return (
       <Route
+        {...rest}
         render={(props) =>
-          isloggedIn ?
+        {      
+          const foo = isloggedIn ?
             <div><Navbar /><Component {...props} /></div>
             :
-            <Redirect to={{ pathname: '/login', state: { from: props.location } }} />}
+            <Redirect to={{ pathname: '/login', state: { from: props.location } }} />;
+          return foo;
+        }}
       />
     );
   }

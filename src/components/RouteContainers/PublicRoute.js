@@ -17,10 +17,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 class PublicRoute extends React.Component {
   render() {
     
-    // const { isloggedIn } = this.state;
-    const { component: Component, isloggedIn } = this.props;
+    const { component: Component, isloggedIn, ...rest } = this.props;
     return (
       <Route
+        {...rest}
         render={(props) =>
           !isloggedIn ?
             <Component {...props} />
