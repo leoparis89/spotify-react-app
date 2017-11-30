@@ -1,3 +1,4 @@
+import {oAuthLogin} from '../../services/authentication/oAuthLogin';
 export const LOGIN_START = 'LOGIN_START';
 export const LOGIN_COMPLETE = 'LOGIN_COMPLETE';
 export const LOGIN_FAILED = 'LOGIN_FAILED';
@@ -5,6 +6,14 @@ export const LOGIN_FAILED = 'LOGIN_FAILED';
 export function login() {
   return dispatch => {
     dispatch(loginStart());
+    oAuthLogin()
+      .then(()=> {
+        dispatch(loginComplete());
+      })
+      .catch(()=> {
+        dispatch(loginFailed());
+      })
+    ;
   };
 }
 
