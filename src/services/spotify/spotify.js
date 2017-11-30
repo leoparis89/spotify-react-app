@@ -19,7 +19,13 @@ export const searchArtists = (artistName, offset = 0) => {
 };
 
 export const getUserInfo = () => {
-  return authGet('https://api.spotify.com/v1/me');
+  return authGet('https://api.spotify.com/v1/me')
+    .then(res => res.data)
+    .then((res => {
+      let { email, id, followers, country } = res;
+      return { email, id, followers, country } ;
+    }));
+
 };
 
 export const getArtistAlbums = id => authGet(`https://api.spotify.com/v1/artists/${id}/albums`);
