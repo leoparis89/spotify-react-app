@@ -8,6 +8,12 @@ const _buildSearchArtistUrl = (artistName, offset = 0) => {
   return 'https://api.spotify.com/v1/search?' + searchParams.toString();
 };
 
+const _buildGetAlbumsUrl = (artistId, offset = 0) => {
+  const params = new URLSearchParams();
+  params.append('offset', offset);
+  return `https://api.spotify.com/v1/artists/${artistId}/albums?${params.toString()}`;
+};
+
 export const searchArtists = (artistName, offset = 0) => {
   return authGet(_buildSearchArtistUrl(artistName, offset))
     .then((res) => {
@@ -15,6 +21,13 @@ export const searchArtists = (artistName, offset = 0) => {
         artist.image = artist.images[0] && artist.images[0].url;
         return artist;
       });
+    });
+};
+
+export const getAlbums = (artistId, offset = 0) => {
+  return authGet(_buildGetAlbumsUrl(artistId, offset))
+    .then((res) => {
+    }).catch((err) => {
     });
 };
 

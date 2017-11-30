@@ -13,10 +13,10 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    getAlbums: () => {
-      dispatch(getAlbums(ownProps.id));
+    getAlbums: (artistId) => {
+      dispatch(getAlbums(artistId));
     }
   };
 };
@@ -24,7 +24,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 class ArtistProfileContainer extends React.Component {
 
   componentDidMount() {
-    this.props.getAlbums();
+    this.props.getAlbums(this.props.id);
   }
 
   render() {
