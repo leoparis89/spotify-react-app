@@ -9,7 +9,6 @@ export function getProfile() {
   return dispatch => {
     dispatch(getProfileStart());
     getUserInfo().then((profile)=> {
-      console.log(profile);
       dispatch(getProfileComplete(profile));
     },
     err => {
