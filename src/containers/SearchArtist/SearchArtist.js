@@ -16,7 +16,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     setQuery: (query) => {
       dispatch(setQuery(query));
     },
-    search: (query, offset) => {
+    searchArtists: (query, offset) => {
       dispatch(searchArtists(query, offset));
     }
   };

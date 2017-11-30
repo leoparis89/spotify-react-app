@@ -11,7 +11,7 @@ class Search extends React.Component {
   delayedCallback = _.debounce((event) => {
     const artistName = event.target.value;
     this.props.setQuery(artistName);
-    this.props.search(artistName);
+    this.props.searchArtists(artistName);
   }, 1000);
 
   componentDidMount() {
@@ -28,10 +28,10 @@ class Search extends React.Component {
   }
 
   increment = () => {
-    const {search, query, offset, loading } = this.props;
+    const {searchArtists, query, offset, loading } = this.props;
     
     if (!loading) {
-      search(query, offset);
+      searchArtists(query, offset);
     }
   }
 
@@ -61,7 +61,7 @@ export default Search;
 Search.propTypes = {
   setQuery
   : PropTypes.func,
-  search: PropTypes.func,
+  searchArtists: PropTypes.func,
   results: PropTypes.array,
   query: PropTypes.string,
   offset: PropTypes.number,
