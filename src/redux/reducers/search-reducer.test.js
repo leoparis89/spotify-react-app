@@ -29,3 +29,21 @@ test('search artist start should enable loading state', () => {
   
   expect(search(initial, actions.searchArtistsStart('metallica'))).toEqual(expected);
 });
+
+test('set query should reset state corectly', () => {
+  const initial = {
+    results: [{id:8}],
+    query: 'foo',
+    offset: 5,
+    loading: true
+  };
+  
+  const expected = {
+    results: [],
+    query: 'my search',
+    offset: 0,
+    loading: false
+  };
+  
+  expect(search(initial, actions.setQuery('my search'))).toEqual(expected);
+});
