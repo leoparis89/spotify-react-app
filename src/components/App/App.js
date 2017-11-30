@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Switch, Redirect } from 'react-router-dom';
-import Login from '../Login/Login';
+// import Login from '../Login/Login';
+import Login from '../../containers/Login/Login';
 import Proxy from '../Proxy/Proxy';
 import SearchArtist from '../../containers/SearchArtist/SearchArtist'; 
 import PrivateRoute from '../RouteContainers/PrivateRoute';

@@ -2,6 +2,11 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 
 import { storage } from '../../services/storage/storage';
+
+import PropTypes from 'prop-types';
+
+
+
 class Login extends React.Component {
     loginToSpotify = (e) => {
       const client_id = '72d87e0820ae4f2e8794d583658d7d45'; // Your client id
@@ -48,12 +53,24 @@ class Login extends React.Component {
     }
 
     render() {
+      const {login} = this.props;
       return (
-        <button className="btn " onClick={this.loginToSpotify}>
-                Log in to Spotify
-        </button>
+        <div>
+          <button className="btn " onClick={this.loginToSpotify}>
+                  Log in to Spotify
+          </button>
+          <br />
+          <button className="btn " onClick={login}>
+                  Log in store
+          </button>
+        </div>
+        
       );
     }
 }
+
+Login.propTypes = {
+  login: PropTypes.func
+};
 
 export default withRouter(Login);
