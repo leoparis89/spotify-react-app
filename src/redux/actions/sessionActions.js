@@ -2,6 +2,7 @@ import {oAuthLogin} from '../../services/authentication/oAuthLogin';
 export const LOGIN_START = 'LOGIN_START';
 export const LOGIN_COMPLETE = 'LOGIN_COMPLETE';
 export const LOGIN_FAILED = 'LOGIN_FAILED';
+import { getProfile } from './profileActions';
 
 export function login() {
   return dispatch => {
@@ -9,6 +10,7 @@ export function login() {
     oAuthLogin()
       .then(()=> {
         dispatch(loginComplete());
+        dispatch(getProfile());
       })
       .catch(()=> {
         dispatch(loginFailed());

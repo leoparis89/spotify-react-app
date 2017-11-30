@@ -1,6 +1,6 @@
 import { authGet } from '../authHttp/authHttp';
 
-export const _buildSearchArtistUrl = (artistName, offset = 0) => {
+const _buildSearchArtistUrl = (artistName, offset = 0) => {
   let searchParams = new URLSearchParams();
   searchParams.append('q', artistName);
   searchParams.append('type', 'artist');
@@ -16,6 +16,10 @@ export const searchArtists = (artistName, offset = 0) => {
         return artist;
       });
     });
+};
+
+export const getUserInfo = () => {
+  return authGet('https://api.spotify.com/v1/me');
 };
 
 export const getArtistAlbums = id => authGet(`https://api.spotify.com/v1/artists/${id}/albums`);
