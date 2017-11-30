@@ -28,8 +28,11 @@ class Search extends React.Component {
   }
 
   increment = () => {
-    const {search, query, offset} = this.props;
-    search(query, offset);
+    const {search, query, offset, loading } = this.props;
+    
+    if (!loading) {
+      search(query, offset);
+    }
   }
 
   render() {
@@ -44,7 +47,7 @@ class Search extends React.Component {
         <button onClick={this.increment}>offset </button>
         <div className="row">
           {this.props.results.map((artist) => {
-            console.log(artist.id);
+            console.log(artist.name, artist.id);
             return <ArtistCard key={artist.id} artist={artist} />;
           })}
         </div>
@@ -58,8 +61,9 @@ export default Search;
 Search.propTypes = {
   setQuery
   : PropTypes.func,
-  search: PropTypes.func,     
+  search: PropTypes.func,
   results: PropTypes.array,
   query: PropTypes.string,
-  offset: PropTypes.number
+  offset: PropTypes.number,
+  loading: PropTypes.bool
 };

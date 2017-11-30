@@ -6,7 +6,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     query: state.search.query,
     results: state.search.results ,
-    offset:  state.search.offset
+    offset:  state.search.offset,
+    loading: state.search.loading
   };  
 };
 
