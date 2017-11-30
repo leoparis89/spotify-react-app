@@ -1,3 +1,4 @@
+import React from 'react';
 import ArtistProfile from '../../components/ArtistProfile/ArtistProfile';
 import { connect } from 'react-redux';
 
@@ -10,13 +11,20 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-// const mapDispatchToProps = (dispatch, ownProps) => {
-//   return dispatch;
-// };
+class ArtistProfileContainer extends React.Component {
 
-const ArtistProfileContainer = connect(
+  componentDidMount() {
+
+  }
+
+  render() {
+    return (
+      <ArtistProfile {...this.props} />
+    );
+  }
+}
+
+export default connect(
   mapStateToProps,
 //   mapDispatchToProps
-)(ArtistProfile);
-
-export default ArtistProfileContainer;
+)(ArtistProfileContainer);
