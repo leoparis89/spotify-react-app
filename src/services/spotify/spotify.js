@@ -38,8 +38,9 @@ export const getAlbums = (artistId, offset = 0) => {
   return authGet(_buildGetAlbumsUrl(artistId, offset))
     .then(res => res.data)
     .then(data => {
-      data.items = _flatenImages(data.items);
-      return data;
+      let {total, offset, items: albums} = data;
+      albums = _flatenImages(albums);
+      return { total, offset, albums};
     })
     .catch((err) => {
     });

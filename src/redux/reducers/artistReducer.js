@@ -14,7 +14,7 @@ export function artist(state = initialState, action) {
   }
   case GET_ALBUMS_COMPLETE:
   {
-    return {...state, loading: false, albums: action.result.items};
+    return {...state, loading: false, albums: action.result.albums};
   }
   default:
     return state;
