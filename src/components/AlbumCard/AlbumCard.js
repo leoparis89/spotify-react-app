@@ -5,7 +5,7 @@ const AlbumCard = (props) => {
 
     
   return (
-    <Link to={'album/' + props.album.id}>
+    <Link to={'/album/' + props.album.id}>
       <div className="col-md-3">
         <h3>
           {props.album.name}
