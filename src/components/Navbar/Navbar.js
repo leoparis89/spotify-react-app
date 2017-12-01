@@ -21,11 +21,11 @@ const Navbar = (props) => {
         <ul className="nav navbar-nav">
           <li className="active"><a href="#">Home</a></li>
           <li className="active">
-            <Link to="/search" style={{ color: 'white' }} activeStyle={{ color: 'red' }}>Search</Link>
+            <Link to="/search" style={{ color: 'white' }}>Search</Link>
           </li>
         </ul>
         <ul className="nav navbar-nav navbar-right">
-        <li className="active"><a href="#">{id}</a></li>
+          <li className="active"><a href="#">{id}</a></li>
           <li><a href="#"><span className="glyphicon glyphicon-user"></span></a></li>  
           <li><a href=""
             onClick={this.logout}
