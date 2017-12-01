@@ -46,6 +46,19 @@ export const getAlbums = (artistId, offset = 0) => {
     });
 };
 
+export const getAlbum = (albumId) => {
+  debugger;
+  // return authGet(_buildGetAlbumsUrl(artistId, offset))
+  //   .then(res => res.data)
+  //   .then(data => {
+  //     let {total, offset, items: albums} = data;
+  //     albums = _flatenImages(albums);
+  //     return { total, offset, albums};
+  //   })
+  //   .catch((err) => {
+  //   });
+};
+
 export const getUserInfo = () => {
   return authGet('https://api.spotify.com/v1/me')
     .then(res => res.data)
