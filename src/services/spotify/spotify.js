@@ -14,6 +14,10 @@ const _buildGetAlbumsUrl = (artistId, offset = 0) => {
   return `https://api.spotify.com/v1/artists/${artistId}/albums?${params.toString()}`;
 };
 
+const _buildGetAlbumUrl = (albumId) => {
+  return `https://api.spotify.com/v1/albums/${albumId}`;
+};
+
 const _flatenImages = (items) => {
   return items.map((item) => {
     const [image] = item.images;
@@ -48,15 +52,13 @@ export const getAlbums = (artistId, offset = 0) => {
 
 export const getAlbum = (albumId) => {
   debugger;
-  // return authGet(_buildGetAlbumsUrl(artistId, offset))
-  //   .then(res => res.data)
-  //   .then(data => {
-  //     let {total, offset, items: albums} = data;
-  //     albums = _flatenImages(albums);
-  //     return { total, offset, albums};
-  //   })
-  //   .catch((err) => {
-  //   });
+  return authGet(_buildGetAlbumUrl(albumId))
+    .then(res => res.data)
+    .then(data => {
+      debugger;
+    })
+    .catch((err) => {
+    });
 };
 
 export const getUserInfo = () => {
