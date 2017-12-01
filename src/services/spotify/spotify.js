@@ -18,7 +18,8 @@ export const searchArtists = (artistName, offset = 0) => {
   return authGet(_buildSearchArtistUrl(artistName, offset))
     .then((res) => {
       return res.data.artists.items.map(artist => {
-        artist.image = artist.images[0] && artist.images[0].url;
+        const [image] = artist.images;
+        artist.image = image && image.url;
         return artist;
       });
     });
