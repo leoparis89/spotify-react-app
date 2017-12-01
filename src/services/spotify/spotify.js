@@ -26,8 +26,8 @@ export const searchArtists = (artistName, offset = 0) => {
 
 export const getAlbums = (artistId, offset = 0) => {
   return authGet(_buildGetAlbumsUrl(artistId, offset))
-    .then((res) => {
-    }).catch((err) => {
+    .then((res) => res.data)
+    .catch((err) => {
     });
 };
 
@@ -36,7 +36,7 @@ export const getUserInfo = () => {
     .then(res => res.data)
     .then((res => {
       let { email, id, followers, country } = res;
-      return { email, id, followers, country } ;
+      return { email, id, followers, country };
     }));
 
 };
