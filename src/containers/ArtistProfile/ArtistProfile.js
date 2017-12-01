@@ -7,6 +7,7 @@ import { getAlbums } from '../../redux/actions/artistActions';
 const mapStateToProps = (state, ownProps) => {
   return {
     id: ownProps.match.params.artistId,
+    albums: state.artist.albums,
     artist: state.search.results.find((artist) => {
       return artist.id === ownProps.match.params.artistId;
     })
