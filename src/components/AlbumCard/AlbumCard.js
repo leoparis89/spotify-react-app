@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import './ArtistCard.css';
 import { Link } from 'react-router-dom';
 const AlbumCard = (props) => {
 
@@ -12,9 +11,9 @@ const AlbumCard = (props) => {
           {props.album.name}
         </h3>
         <div className="image">
-          {/* <img src={props.artist.image}
-            className="img-responsive"
-            alt={props.artist.name} /> */}
+          <img src={props.album.image}
+            className="img-responsive center-block"
+            alt={props.album.name} />
         </div>
       </div>
     </Link>

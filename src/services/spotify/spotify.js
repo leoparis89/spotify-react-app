@@ -14,10 +14,19 @@ const _buildGetAlbumsUrl = (artistId, offset = 0) => {
   return `https://api.spotify.com/v1/artists/${artistId}/albums?${params.toString()}`;
 };
 
+const _flatenImages = (items) => {
+  return items.map((item) => {
+    const [image] = item.images;
+    item.image = image && image.url;
+    return item;
+  });
+};
+
 export const searchArtists = (artistName, offset = 0) => {
   return authGet(_buildSearchArtistUrl(artistName, offset))
+    .then((res) => res.data)
     .then((res) => {
-      return res.data.artists.items.map(artist => {
+      return res.artists.items.map(artist => {
         const [image] = artist.images;
         artist.image = image && image.url;
         return artist;
@@ -27,7 +36,11 @@ export const searchArtists = (artistName, offset = 0) => {
 
 export const getAlbums = (artistId, offset = 0) => {
   return authGet(_buildGetAlbumsUrl(artistId, offset))
-    .then((res) => res.data)
+    .then(res => res.data)
+    .then(data => {
+      data.items = _flatenImages(data.items);
+      return data;
+    })
     .catch((err) => {
     });
 };
@@ -39,7 +52,6 @@ export const getUserInfo = () => {
       let { email, id, followers, country } = res;
       return { email, id, followers, country };
     }));
-
 };
 
 export const getArtistAlbums = id => authGet(`https://api.spotify.com/v1/artists/${id}/albums`);
