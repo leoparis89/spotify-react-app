@@ -51,11 +51,19 @@ export const getAlbums = (artistId, offset = 0) => {
 };
 
 export const getAlbum = (albumId) => {
-  debugger;
   return authGet(_buildGetAlbumUrl(albumId))
     .then(res => res.data)
     .then(data => {
-      debugger;
+      const {name,
+          label,
+          id,
+          release_date,
+          album_type, artists,
+          tracks: {items: tracks},
+          images: [{url: image}]} = data;
+     // const [image] = images;
+      //const {items: bar} = track
+        return {id, name, label, release_date, album_type, artists, tracks, image};
     })
     .catch((err) => {
     });

@@ -11,6 +11,9 @@ export function album(state = initialState, action) {
   case GET_ALBUM_START:
   {
     return {...state, loading: true};
+  }  case GET_ALBUM_COMPLETE:
+  {
+    return {...action.albumData, loading: false};
   }
   default:
     return state;

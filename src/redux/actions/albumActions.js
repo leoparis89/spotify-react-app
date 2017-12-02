@@ -7,13 +7,13 @@ export const GET_ALBUM_FAILED = 'GET_ALBUM_FAILED';
 
 export function getAlbum(albumId) {
   return dispatch => {
-    debugger;
-      getAlbumFunc(albumId).then((res => {
-          debugger;
+      dispatch(getAlbumStart());
+      getAlbumFunc(albumId).then((albumData => {
+          dispatch(getAlbumComplete(albumData));
       }))
-    dispatch(getAlbumStart());
+
     // getAlbumsFunc(artistId).then(res => {
-    //   dispatch(getAlbumsComplete(res));
+    //   ;
     // });
   };
 }
@@ -22,8 +22,8 @@ export function getAlbumStart() {
   return { type: GET_ALBUM_START };
 }
   
-export function getAlbumComplete(result) {
-  return { type: GET_ALBUM_COMPLETE, result };
+export function getAlbumComplete(albumData) {
+  return { type: GET_ALBUM_COMPLETE, albumData };
 }
   
 export function getAlbumFailed() {

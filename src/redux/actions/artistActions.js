@@ -4,7 +4,6 @@ export const GET_ALBUMS_COMPLETE = 'GET_ALBUMS_COMPLETE';
 export const GET_ALBUMS_FAILED = 'GET_ALBUMS_FAILED';
 
 
-
 export function getAlbums(artistId) {
   return dispatch => {
     dispatch(getAlbumsStart());
@@ -13,7 +12,7 @@ export function getAlbums(artistId) {
     });
   };
 }
-  
+
 export function getAlbumsStart() {
   return { type: GET_ALBUMS_START };
 }
