@@ -1,7 +1,6 @@
 import {GET_ALBUMS_START, GET_ALBUMS_COMPLETE} from '../actions/artistActions';
 
 const initialState = {
-  id: null,
   albums: [],
   loading: false
 };
@@ -14,7 +13,7 @@ export function artist(state = initialState, action) {
   }
   case GET_ALBUMS_COMPLETE:
   {
-    return {...state, loading: false, albums: action.result.albums};
+    return { loading: false, ...action.result, albums: state.albums.concat(action.result.albums)};
   }
   default:
     return state;
