@@ -13,7 +13,9 @@ export function artist(state = initialState, action) {
   }
   case GET_ALBUMS_COMPLETE:
   {
-    return { loading: false, ...action.result, albums: state.albums.concat(action.result.albums)};
+
+    return { loading: false, ...action.result, 
+      albums: state.offset ? state.albums.concat(action.result.albums) : action.result.albums };
   }
   default:
     return state;

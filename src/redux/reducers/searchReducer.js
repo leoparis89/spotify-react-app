@@ -5,7 +5,7 @@ import {
 const initialState = {
   results: [],
   query: null,
-  offset: 0,
+  offset: null,
   loading: false
 };
     
