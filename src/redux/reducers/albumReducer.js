@@ -1,7 +1,6 @@
 import {GET_ALBUM_START, GET_ALBUM_COMPLETE, GET_ALBUM_FAILED} from '../actions/albumActions';
 
 const initialState = {
-  id: null,
   tracks: [],
   loading: false
 };

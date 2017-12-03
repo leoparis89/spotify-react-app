@@ -7,14 +7,10 @@ export const GET_ALBUM_FAILED = 'GET_ALBUM_FAILED';
 
 export function getAlbum(albumId) {
   return dispatch => {
-      dispatch(getAlbumStart());
-      getAlbumFunc(albumId).then((albumData => {
-          dispatch(getAlbumComplete(albumData));
-      }))
-
-    // getAlbumsFunc(artistId).then(res => {
-    //   ;
-    // });
+    dispatch(getAlbumStart());
+    getAlbumFunc(albumId).then((albumData => {
+      dispatch(getAlbumComplete(albumData));
+    }));
   };
 }
   
