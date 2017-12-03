@@ -37,7 +37,10 @@ class Album extends React.Component {
                 alt={name} />
             </div>
             <div className="col-6">
-             
+              <h1>{name}</h1>
+              {tracks.map(track => {
+                return (<div>{track.name}</div>);
+              })}
             </div>
           </div>
         </div>
