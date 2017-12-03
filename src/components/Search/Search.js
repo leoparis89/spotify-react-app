@@ -2,6 +2,7 @@ import React from 'react';
 import * as _ from 'underscore';
 import ArtistCard from '../ArtistCard/ArtistCard';
 import PropTypes from 'prop-types';
+import { onBottomScroll} from'../../services/utils/scroll';
 
 class Search extends React.Component {
   state = {
@@ -15,11 +16,7 @@ class Search extends React.Component {
   }, 1000);
 
   componentDidMount() {
-    window.onscroll = (e) => {
-      if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight) {
-        this.increment();
-      }
-    };
+    onBottomScroll(this.increment);
   }
 
   onChange = (event) => {
@@ -44,7 +41,6 @@ class Search extends React.Component {
         <input type="text"
           onChange={this.onChange}
           className="form-control" id="usr" />
-        <button onClick={this.increment}>offset </button>
         <div className="row">
           {this.props.results.map((artist) => {
             console.log(artist.name, artist.id);
