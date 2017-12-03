@@ -55,15 +55,12 @@ export const getAlbum = (albumId) => {
     .then(res => res.data)
     .then(data => {
       const {name,
-          label,
-          id,
-          release_date,
-          album_type, artists,
-          tracks: {items: tracks},
-          images: [{url: image}]} = data;
-     // const [image] = images;
-      //const {items: bar} = track
-        return {id, name, label, release_date, album_type, artists, tracks, image};
+        label,
+        release_date,
+        album_type, artists,
+        tracks: {items: tracks},
+        images: [{url: image}]} = data;
+      return {name, label, release_date, album_type, artists, tracks, image};
     })
     .catch((err) => {
     });

@@ -5,8 +5,9 @@ import { getAlbum } from '../../redux/actions/albumActions';
 
 const mapStateToProps = (state, ownProps) => {
   return {
+    ...state.album,
     id: ownProps.match.params.albumId,
-    tracks: state.album.tracks
+
   };
 };
   
@@ -24,8 +25,24 @@ class Album extends React.Component {
   }
     
   render() {
+
+    const {name, release_date, label, album_type, artists, image, tracks} = this.props;
     return (
-      <div>bar</div>
+      <div>bar
+        <div className="container">
+          <div className="row">
+            <div className="col-6">
+              <img src={image}
+                className="img-responsive"
+                alt={name} />
+            </div>
+            <div className="col-6">
+             
+            </div>
+          </div>
+        </div>
+
+      </div>
     );
   }
 }
