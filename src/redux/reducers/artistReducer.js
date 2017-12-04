@@ -2,13 +2,17 @@ import {GET_ALBUMS_START, GET_ALBUMS_COMPLETE} from '../actions/artistActions';
 
 const initialState = {
   albums: [],
-  loading: false
+  loading: false,
+  wantedOffset: null,
+  offset: null,
+  total: null
+
 };
       
 export function artist(state = initialState, action) {
   switch (action.type) {
   case GET_ALBUMS_START:
-  {
+  { debugger;
     return {...state, loading: true};
   }
   case GET_ALBUMS_COMPLETE:

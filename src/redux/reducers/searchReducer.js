@@ -6,7 +6,6 @@ const initialState = {
   results: [],
   query: null,
   offset: null,
-  wantedOffset: null,
   loading: false
 };
     
