@@ -1,6 +1,6 @@
 import {
   SET_QUERY, SEARCH_ARTISTS_START, SEARCH_ARTISTS_COMPLETE
-} from '../actions';
+} from '../actions/searchActions';
 
 const initialState = {
   results: [],

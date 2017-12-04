@@ -2,7 +2,7 @@
  * action types
  */
 
-import { searchArtists as searchArtistsFunc } from '../services/spotify/spotify';
+import { searchArtists as searchArtistsFunc } from '../../services/spotify/spotify';
 
 export const SEARCH_ARTISTS = 'SEARCH_ARTISTS';
 export const SET_QUERY = 'SET_QUERY';

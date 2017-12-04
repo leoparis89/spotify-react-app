@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { setQuery, searchArtists } from '../../redux/actions';
+import { setQuery, searchArtists } from '../../redux/actions/searchActions';
 import Search from '../../components/Search/Search';
 
 const mapStateToProps = (state, ownProps) => {
