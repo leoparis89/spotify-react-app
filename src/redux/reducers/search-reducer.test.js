@@ -5,7 +5,7 @@ test('it should create initial state', () => {
   const expected = {
     results: [],
     query: null,
-    offset: 0,
+    offset: null,
     loading: false
   };
   
@@ -41,7 +41,7 @@ test('set query should reset state corectly', () => {
   const expected = {
     results: [],
     query: 'my search',
-    offset: 0,
+    offset: null,
     loading: false
   };
   
