@@ -17,7 +17,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getAlbums: (artistId, offset) => {
+    getAlbums: (artistId, offset) => {;
       dispatch(getAlbums(artistId, offset));
     }
   };
@@ -26,7 +26,7 @@ const mapDispatchToProps = (dispatch) => {
 class ArtistProfileContainer extends React.Component {
 
   componentDidMount() {
-    this.props.getAlbums(this.props.id);
+    this.props.getAlbums(this.props.id, 0);
     onBottomScroll(this.tryGetNextAlbums);
   }
 

@@ -6,15 +6,15 @@ export const GET_ALBUMS_FAILED = 'GET_ALBUMS_FAILED';
 
 export function getAlbums(artistId, offset) {
   return dispatch => {
-    dispatch(getAlbumsStart());
+    dispatch(getAlbumsStart(offset));
     getAlbumsFunc(artistId, offset).then(res => {
       dispatch(getAlbumsComplete(res));
     });
   };
 }
 
-export function getAlbumsStart() {
-  return { type: GET_ALBUMS_START };
+export function getAlbumsStart(wantedOffset) {
+  return { type: GET_ALBUMS_START, wantedOffset };
 }
   
 export function getAlbumsComplete(result) {
