@@ -1,8 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-// import {getAlbum} from '../../services/spotify/spotify';
 import { getAlbum } from '../../redux/actions/albumActions';
-
+import Album from '../../components/Album/Album';
 const mapStateToProps = (state, ownProps) => {
   return {
     ...state.album,
@@ -19,33 +18,14 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-class Album extends React.Component {
+class AlbumContainer extends React.Component {
   componentDidMount() {
     this.props.getAlbum(this.props.id);
   }
     
   render() {
-
-    const {name, release_date, label, album_type, artists, image, tracks} = this.props;
     return (
-      <div>bar
-        <div className="container">
-          <div className="row">
-            <div className="col-6">
-              <img src={image}
-                className="img-responsive"
-                alt={name} />
-            </div>
-            <div className="col-6">
-              <h1>{name}</h1>
-              {tracks.map(track => {
-                return (<div>{track.name}</div>);
-              })}
-            </div>
-          </div>
-        </div>
-
-      </div>
+      <Album {...this.props}/>
     );
   }
 }
@@ -53,4 +33,4 @@ class Album extends React.Component {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Album);
+)(AlbumContainer);
