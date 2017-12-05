@@ -1,9 +1,10 @@
 import {
   LOGIN_START, LOGIN_COMPLETE, LOGIN_FAILED
 } from '../actions/sessionActions';
+import {isLoggedIn} from '../../services/authentication/authentication';
   
 const initialState = {
-  isLoggedIn: false
+  isLoggedIn: isLoggedIn()
 };
       
 export function session(state = initialState, action) {
