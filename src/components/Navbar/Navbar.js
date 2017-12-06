@@ -1,14 +1,5 @@
-
 import React from 'react';
-import { authentication } from '../../services/authentication/authentication';
 import {Link} from 'react-router-dom';
-import { connect } from 'react-redux';
-
-
-const mapStateToProps = (state, ownProps) => {
-  const {id} = state.profile;
-  return { id };  
-};
 
 const Navbar = (props) => {
   const {id} = props;
@@ -26,7 +17,7 @@ const Navbar = (props) => {
         </ul>
         <ul className="nav navbar-nav navbar-right">
           <li className="active"><a href="#">{id}</a></li>
-          <li><a href="#"><span className="glyphicon glyphicon-user"></span></a></li>  
+          <li><a href="#"><span className="glyphicon glyphicon-user"></span></a></li>
           <li><a href=""
             onClick={this.logout}
           ><span className="glyphicon glyphicon-off"
@@ -37,7 +28,4 @@ const Navbar = (props) => {
   );
 };
 
-
-export default connect(
-  mapStateToProps
-)(Navbar);
+export default Navbar;
