@@ -2,22 +2,28 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 const AlbumCard = (props) => {
+  const {name, image, album_type} = props.album;
 
-    
   return (
-    <Link to={'/album/' + props.album.id}>
-      <div className="col-md-3">
-        <h3>
-          {props.album.name}
-        </h3>
-        <div className="image">
-          <img src={props.album.image}
-            className="img-responsive center-block"
-            alt={props.album.name} />
+    <div className="col-md-3">
+      <Link to={'/album/' + props.album.id}>
+        <div className="card">
+          {image ?
+            <img className="card-img-top"
+              style={{objectFit: 'cover', height: '250px' }}
+              src={image} alt="Card image cap" />
+            :
+            <div style={{height:'250px'}}>
+              <i className="fa fa-music" style={{fontSize: '200px'}}></i>
+            </div>
+          }
+          <div className="card-block">
+            <h4 className="card-title">{name}</h4>
+            <h5><span className="badge badge-info">{album_type}</span></h5>
+          </div>
         </div>
-        <h2> <span className="label label-default"> {props.album.album_type} </span></h2>
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 };
 

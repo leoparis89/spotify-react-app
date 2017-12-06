@@ -17,10 +17,10 @@ const ArtistProfile = (props) => {
       </div>
       <div>
         {artist.genres.map(genre => {
-          return (<span
-            key={genre}
-            className="label label-info"
-          >{genre}</span>);
+          return (
+              <span>      <h4> <span className="badge badge-pill badge-success">{genre}</span></h4></span>
+
+          );
         })}
       </div>
       <div className="row">
