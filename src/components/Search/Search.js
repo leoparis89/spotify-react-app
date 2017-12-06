@@ -41,7 +41,7 @@ class Search extends React.Component {
         <input type="text"
           onChange={this.onChange}
           className="form-control" id="usr" />
-        <div className="row">
+        <div className="row row-eq-height">
           {this.props.results.map((artist) => {
             console.log(artist.name, artist.id);
             return <ArtistCard key={artist.id} artist={artist} />;
