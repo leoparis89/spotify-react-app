@@ -1,5 +1,5 @@
 import {
-  LOGIN_START, LOGIN_COMPLETE, LOGIN_FAILED
+  LOGIN_START, LOGIN_COMPLETE, LOGIN_FAILED, LOGOUT
 } from '../actions/sessionActions';
 import {isLoggedIn} from '../../services/authentication/authentication';
   
@@ -15,9 +15,11 @@ export function session(state = initialState, action) {
     return { state};
   case LOGIN_COMPLETE:
     return {
-      ...state.session,
+      ...state,
       isLoggedIn: true
     };
+  case LOGOUT:
+    return { ...state, isLoggedIn: false };
   default:
     return state;
   }
