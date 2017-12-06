@@ -1,14 +1,9 @@
 import { storage } from '../storage/storage';
 
-class Authentication {
+export const logout = () => {
+  storage.emptyStorage();
+};
 
-  logout() {
-    storage.emptyStorage();
-  }
-
-  isLoggedIn() {
-    return !!localStorage.getItem('spotify-token');
-  }
-}
-
-export const authentication = new Authentication();
+export const isLoggedIn = ()  => {
+  return !!localStorage.getItem('spotify-token');
+};

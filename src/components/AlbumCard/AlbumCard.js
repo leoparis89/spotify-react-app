@@ -15,7 +15,7 @@ const AlbumCard = (props) => {
             className="img-responsive center-block"
             alt={props.album.name} />
         </div>
-        <h2> <span class="label label-default"> {props.album.album_type} </span></h2>
+        <h2> <span className="label label-default"> {props.album.album_type} </span></h2>
       </div>
     </Link>
   );
@@ -23,7 +23,7 @@ const AlbumCard = (props) => {
 
 AlbumCard.propTypes = {
   album: PropTypes.shape({
-    id: PropTypes.number.isRequired,
+    id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     image: PropTypes.string,
     album_type: PropTypes.string,
