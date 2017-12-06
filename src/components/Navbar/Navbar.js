@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 const Navbar = (props) => {
-  const {id} = props;
+  const {id, logout} = props;
   return (
     <nav className="navbar navbar-inverse">
       <div className="container">
@@ -18,8 +18,8 @@ const Navbar = (props) => {
         <ul className="nav navbar-nav navbar-right">
           <li className="active"><a href="#">{id}</a></li>
           <li><a href="#"><span className="glyphicon glyphicon-user"></span></a></li>
-          <li><a href=""
-            onClick={this.logout}
+          <li><a href="#"
+            onClick={logout}
           ><span className="glyphicon glyphicon-off"
             ></span></a></li>
         </ul>

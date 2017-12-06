@@ -2,6 +2,7 @@ import {oAuthLogin} from '../../services/authentication/oAuthLogin';
 export const LOGIN_START = 'LOGIN_START';
 export const LOGIN_COMPLETE = 'LOGIN_COMPLETE';
 export const LOGIN_FAILED = 'LOGIN_FAILED';
+export const LOGOUT = 'LOGOUT';
 import { getProfile } from './profileActions';
 
 export function login() {
@@ -29,4 +30,8 @@ export function loginComplete() {
 
 export function loginFailed() {
   return { type: LOGIN_FAILED };
+}
+
+export function logout() {
+  return { type: LOGOUT };
 }
