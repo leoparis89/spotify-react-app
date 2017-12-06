@@ -10,7 +10,15 @@ const ArtistCard = (props) => {
     <div className="col-md-3">
       <Link to={'artist/' + props.artist.id}>
         <div className="card">
-          <img className="card-img-top" src={image} alt="Card image cap" />
+          {image ?
+            <img className="card-img-top"
+              style={{objectFit: 'cover', height: '250px' }}
+              src={image} alt="Card image cap" />
+            :
+            <div style={{height:'250px'}}>
+              <i className="fa fa-music" style={{fontSize: '200px'}}></i>
+            </div>
+          }
           <div className="card-body">{name}</div>
         </div>
       </Link>
