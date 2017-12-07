@@ -8,10 +8,10 @@ export const START_KEEP_ALIVE = 'START_KEEP_ALIVE';
 export const STOP_KEEP_ALIVE = 'STOP_KEEP_ALIVE';
 import { getProfile } from './profileActions';
 
-export function login() {
+export function login(opt) {
   return dispatch => {
     dispatch(loginStart());
-    oAuthLogin()
+    oAuthLogin(opt)
       .then(()=> {
         dispatch(loginComplete());
         dispatch(getProfile());
@@ -43,7 +43,9 @@ export function logout() {
 let interValId;
 export function startKeepAlive() {
   return dispatch => {
-    interValId = setInterval(() => { console.log('FOOO');}, 1000);
+    const minute = 60 * 1000;
+    // renew token in hidden iframe every 50 minutes
+    interValId = setInterval(() => dispatch(login({covert: true})), 50 * minute);
     dispatch({ type: START_KEEP_ALIVE });
   };
 }

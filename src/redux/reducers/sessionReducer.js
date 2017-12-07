@@ -10,9 +10,12 @@ const initialState = {
 export function session(state = initialState, action) {
   switch (action.type) {
   case LOGIN_START:
-    return { state};
+    return  state;
   case LOGIN_FAILED:
-    return { state};
+    return  {
+      ...state,
+      isLoggedIn: false
+    };
   case LOGIN_COMPLETE:
     return {
       ...state,
