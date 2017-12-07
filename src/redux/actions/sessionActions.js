@@ -10,6 +10,7 @@ import { getProfile } from './profileActions';
 
 export function login(opt) {
   return dispatch => {
+    debugger;
     dispatch(loginStart());
     oAuthLogin(opt)
       .then(()=> {
@@ -45,7 +46,7 @@ export function startKeepAlive() {
   return dispatch => {
     const minute = 60 * 1000;
     // renew token in hidden iframe every 50 minutes
-    interValId = setInterval(() => dispatch(login({covert: true})), 50 * minute);
+    interValId = setInterval(() => dispatch(login({covert: true})), 5000);
     dispatch({ type: START_KEEP_ALIVE });
   };
 }
