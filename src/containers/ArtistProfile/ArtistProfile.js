@@ -9,7 +9,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     id: ownProps.match.params.artistId,
     ...state.artist,
-    artist: state.search.results.find((artist) => {
+    artist: state.search.artists.find((artist) => {
       return artist.id === ownProps.match.params.artistId;
     })
   };

@@ -3,10 +3,11 @@ import {
 } from '../actions/searchActions';
 
 const initialState = {
-  results: [],
+  artists: [],
   query: null,
   offset: null,
-  loading: false
+  loading: false,
+  total: null
 };
     
 export function search(state = initialState, action) {
@@ -15,12 +16,16 @@ export function search(state = initialState, action) {
     return { ...initialState, query: action.query };
   case SEARCH_ARTISTS_START:
     return { ...state, loading: true };
-  case SEARCH_ARTISTS_COMPLETE:
+    case SEARCH_ARTISTS_COMPLETE:
+    console.log({
+      ...state,
+      ...action.results,
+      loading: false,
+    })
     return {
       ...state,
+      ...action.results,
       loading: false,
-      offset: state.offset + 20,
-      results: state.results.concat(action.results)
     };
   default:
     return state;

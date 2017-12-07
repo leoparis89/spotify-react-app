@@ -3,11 +3,14 @@ import { setQuery, searchArtists } from '../../redux/actions/searchActions';
 import Search from '../../components/Search/Search';
 
 const mapStateToProps = (state, ownProps) => {
+  const {query, artists, offset, total, loading}  = state.search;
+
   return {
-    query: state.search.query,
-    results: state.search.results ,
-    offset:  state.search.offset,
-    loading: state.search.loading
+    query,
+    artists ,
+    offset,
+    total,
+    loading
   };  
 };
 

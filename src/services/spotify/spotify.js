@@ -29,12 +29,10 @@ const _flatenImages = (items) => {
 export const searchArtists = (artistName, offset = 0) => {
   return authGet(_buildSearchArtistUrl(artistName, offset))
     .then((res) => res.data)
-    .then((res) => {
-      return res.artists.items.map(artist => {
-        const [image] = artist.images;
-        artist.image = image && image.url;
-        return artist;
-      });
+    .then((data) => {
+      let {total, offset, items: artists} = data.artists;
+      artists = _flatenImages(artists);
+      return { total, offset, artists};
     });
 };
 

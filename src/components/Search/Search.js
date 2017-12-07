@@ -27,12 +27,12 @@ class Search extends React.Component {
   increment = () => {
     const {searchArtists, query, offset, loading } = this.props;
     if (!loading) {
-      searchArtists(query, offset);
+      searchArtists(query, offset + 20);
     }
   }
 
   render() {
-    const { total } = this.props;
+    const { total, artists } = this.props;
     return (
       <div>
         <div className='row'>
@@ -41,12 +41,13 @@ class Search extends React.Component {
             <input onChange={this.onChange} type="text" className="form-control" placeholder="Artist name..." aria-describedby="sizing-addon1"/>
           </div>
         </div>
-        <h1>{total}</h1>
+        {total && <h2>{total} results...</h2> }
         <div className="row" >
-          {this.props.results.map((artist) => {
+          {artists.map((artist) => {
             return <ArtistCard key={artist.id} artist={artist} />;
           })}
         </div>
+
       </div>
     );
   }
