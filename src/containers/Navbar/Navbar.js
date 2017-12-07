@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Navbar from '../../components/Navbar/Navbar';
-import {logout} from '../../redux/actions/sessionActions';
+import {logout, stopKeepAlive} from '../../redux/actions/sessionActions';
 
 
 const mapStateToProps = (state, ownProps) => {
@@ -11,6 +11,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return { logout() {
     dispatch(logout());
+    dispatch(stopKeepAlive());
   } };
 };
 
