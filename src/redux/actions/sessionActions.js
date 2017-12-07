@@ -40,10 +40,17 @@ export function logout() {
   return { type: LOGOUT };
 }
 
+let interValId;
 export function startKeepAlive() {
-  return { type: START_KEEP_ALIVE };
+  return dispatch => {
+    interValId = setInterval(() => { console.log('FOOO');}, 1000);
+    dispatch({ type: START_KEEP_ALIVE });
+  };
 }
 
 export function stopKeepAlive() {
-  return { type: STOP_KEEP_ALIVE };
+  return dispatch => {
+    clearInterval(interValId);
+    dispatch({ type: STOP_KEEP_ALIVE });
+  };
 }
