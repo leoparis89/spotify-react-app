@@ -24,9 +24,14 @@ export const oAuthLogin = (opt = {}) => {
     // resolve();
 
     let handleMessage = (event) => {
-      var hash = JSON.parse(event.data);
-      console.log(hash);
-      if (hash.type == 'access_token') {
+      let hash;
+      try {
+        hash = JSON.parse(event.data);
+      } catch (e) {
+        console.warn('this data didn\'t contain a hash...', hash, e);
+      }
+
+      if (hash && hash.type == 'access_token') {
         console.log('access ok');
         storage.setToken(hash.access_token);
         const epochDateInSec = Math.floor(new Date().valueOf() / 1000);
