@@ -1,6 +1,6 @@
 import { storage } from '../storage/storage';
 
-export const oAuthLogin = () => {
+export const oAuthLogin = (opt = {}) => {
   return new Promise ((resolve, reject) => {
     const client_id = '72d87e0820ae4f2e8794d583658d7d45'; // Your client id
     const redirect_uri = window.location.origin + '/proxy';
@@ -42,9 +42,16 @@ export const oAuthLogin = () => {
   
     window.addEventListener('message', handleMessage, true);
 
-
-    window.open(url,
-       'theFrame'
-    );
+    const { covert } = opt;
+    if (covert) {
+      window.open(url,
+        'theFrame'
+      );
+    } else {
+      window.open(url,
+        'Spotify',
+        'menubar=no,location=no,resizable=no,scrollbars=no,status=no, width=' + width + ', height=' + height + ', top=' + top + ', left=' + left
+      );
+    }
   });
 };
