@@ -3,19 +3,23 @@ const Artist = (props) => {
 
   const {name, release_date, label, album_type, artists, image, tracks} = props;
   return (
-    <div>bar
+    <div>
       <div className="container">
+
         <div className="row">
           <div className="col-6">
             <img src={image}
-              className="img-responsive"
+              className="img-fluid"
               alt={name} />
           </div>
           <div className="col-6">
-            <h1>{name}</h1>
-            {tracks.map(track => {
-              return (<div>{track.name}</div>);
-            })}
+            <h3>{name}  </h3>
+            <h4>tracks: </h4>
+            <ul class="list-group">
+              {tracks.map(track => {
+                return (<li className="list-group-item">{track.name}</li>);
+              })}
+            </ul>
           </div>
         </div>
       </div>
