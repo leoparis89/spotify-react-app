@@ -20,6 +20,9 @@ const render = Component => {
 };
   
 render(Root);
+
+
+window.open('http://google.co', "theFrame");
   
 if (module.hot) {
   module.hot.accept('./containers/Root/Root', () => { render(Root); });

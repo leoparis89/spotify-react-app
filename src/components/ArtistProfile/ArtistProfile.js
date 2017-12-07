@@ -19,7 +19,6 @@ const ArtistProfile = (props) => {
         {artist.genres.map(genre => {
           return (
               <span>      <h4> <span className="badge badge-pill badge-success">{genre}</span></h4></span>
-
           );
         })}
       </div>
