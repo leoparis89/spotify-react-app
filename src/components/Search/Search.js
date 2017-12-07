@@ -26,24 +26,24 @@ class Search extends React.Component {
 
   increment = () => {
     const {searchArtists, query, offset, loading } = this.props;
-    
     if (!loading) {
       searchArtists(query, offset);
     }
   }
 
   render() {
+    const { total } = this.props;
     return (
-      <div className="form-group text-center">
-        <label>Search !</label>
-        <h1>{this.props.query}</h1>
-        <h2>{this.props.offset}</h2>
-        <input type="text"
-          onChange={this.onChange}
-          className="form-control" id="usr" />
+      <div>
+        <div className='row'>
+          <h1 className='col-md-12'>Search!</h1>
+          <div className="input-group input-group-lg col-md-4 offset-md-4">
+            <input onChange={this.onChange} type="text" className="form-control" placeholder="Artist name..." aria-describedby="sizing-addon1"/>
+          </div>
+        </div>
+        <h1>{total}</h1>
         <div className="row" >
           {this.props.results.map((artist) => {
-            console.log(artist.name, artist.id);
             return <ArtistCard key={artist.id} artist={artist} />;
           })}
         </div>
