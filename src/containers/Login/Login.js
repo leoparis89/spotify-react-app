@@ -14,7 +14,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     login: () => {
       dispatch(login());
-      dispatch(startKeepAlive());
+      // dispatch(startKeepAlive());
     }
   };
 };
