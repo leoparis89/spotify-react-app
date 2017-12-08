@@ -3,6 +3,7 @@ import ArtistProfile from '../../components/ArtistProfile/ArtistProfile';
 import { connect } from 'react-redux';
 import { getAlbums } from '../../redux/actions/artistActions';
 import { onBottomScroll} from'../../services/utils/scroll';
+import {searchArtists} from "../../redux/actions/searchActions";
 
 
 const mapStateToProps = (state, ownProps) => {
@@ -19,6 +20,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getAlbums: (artistId, offset) => {;
       dispatch(getAlbums(artistId, offset));
+    },
+    getArtist: (id) => {;
     }
   };
 };
@@ -26,7 +29,10 @@ const mapDispatchToProps = (dispatch) => {
 class ArtistProfileContainer extends React.Component {
 
   componentDidMount() {
-    this.props.getAlbums(this.props.id, 0);
+    const {id, getAlbums, getArtist} = this.props;
+    getAlbums(id, 0);
+    getArtist(id);
+
     onBottomScroll(this.tryGetNextAlbums);
   }
 
