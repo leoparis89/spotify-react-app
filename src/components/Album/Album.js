@@ -9,15 +9,19 @@ const Artist = (props) => {
     <div>
       <div className="container">
 
-        <div className="row">
+        <div className="row" style={{marginTop: '40px'}}>
           <div className="col-6">
             <img src={image}
-              className="img-fluid"
+              className="img-fluid" style={{width:'50%'}}
               alt={name} />
+            <h3>{name}  </h3>
+            <h4><span class="badge badge-pill badge-primary">{label}</span></h4>
           </div>
           <div className="col-6">
-            <h3>{name}  </h3>
-            <iframe src={url} width="300" height="380" frameBorder="0" allowTransparency="true"></iframe>
+            <div>
+              <iframe src={url} width="100%" height="500px" frameBorder="0" allowTransparency="true"></iframe>
+            </div>
+
             {/*<h4>tracks: </h4>*/}
             {/*<ul class="list-group">*/}
             {/*{tracks.map(track => {*/}
