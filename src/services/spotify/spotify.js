@@ -52,13 +52,15 @@ export const getAlbum = (albumId) => {
   return authGet(_buildGetAlbumUrl(albumId))
     .then(res => res.data)
     .then(data => {
-      const {name,
+      const {
+        id,
+        name,
         label,
         release_date,
         album_type, artists,
         tracks: {items: tracks},
         images: [{url: image}]} = data;
-      return {name, label, release_date, album_type, artists, tracks, image};
+      return {id, name, label, release_date, album_type, artists, tracks, image};
     })
     .catch((err) => {
     });
