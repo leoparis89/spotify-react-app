@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'bootstrap/dist/css/bootstrap.css';
-import './index.css';
-
+// import 'bootstrap/dist/css/bootstrap.css';
+// import './index.css';
+import './styles/styles.scss';
 import { AppContainer } from 'react-hot-loader';
 
 import Root from './containers/Root/Root';

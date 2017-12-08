@@ -9,11 +9,13 @@
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-react": "^7.4.0",
     "jest": "^21.2.1",
+    "node-sass": "^4.7.2",
     "react-test-renderer": "^16.0.0",
     "redux": "^3.7.2",
     "redux-devtools": "^3.4.1",
     "redux-devtools-dock-monitor": "^1.1.2",
     "redux-devtools-log-monitor": "^1.4.0",
+    "sass-loader": "^6.0.6",
     "webpack-dev-server": "^2.9.3"
   },
   "scripts": {
