@@ -1,6 +1,7 @@
 import {GET_ALBUMS_START, GET_ALBUMS_COMPLETE} from '../actions/artistActions';
 
 const initialState = {
+  artist: {},
   albums: [],
   loading: false,
   wantedOffset: null,

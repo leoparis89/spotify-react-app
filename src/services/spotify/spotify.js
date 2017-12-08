@@ -18,6 +18,10 @@ const _buildGetAlbumUrl = (albumId) => {
   return `https://api.spotify.com/v1/albums/${albumId}`;
 };
 
+const _buildGetArtistUrl = (id) => {
+  return `https://api.spotify.com/v1/artists/${id}`;
+};
+
 const _flatenImages = (items) => {
   return items.map((item) => {
     const [image] = item.images;
@@ -28,8 +32,19 @@ const _flatenImages = (items) => {
 
 export const searchArtists = (artistName, offset = 0) => {
   return authGet(_buildSearchArtistUrl(artistName, offset))
-    .then((res) => res.data)
+    .then(extractData)
     .then((data) => {
+      let {total, offset, items: artists} = data.artists;
+      artists = _flatenImages(artists);
+      return { total, offset, artists};
+    });
+};
+
+export const getArtist = (id) => {
+  return authGet(_buildGetArtistUrl(id))
+    .then(extractData)
+    .then((data) => {
+      debugger;
       let {total, offset, items: artists} = data.artists;
       artists = _flatenImages(artists);
       return { total, offset, artists};
@@ -38,7 +53,7 @@ export const searchArtists = (artistName, offset = 0) => {
 
 export const getAlbums = (artistId, offset = 0) => {
   return authGet(_buildGetAlbumsUrl(artistId, offset))
-    .then(res => res.data)
+    .then(extractData)
     .then(data => {
       let {total, offset, items: albums} = data;
       albums = _flatenImages(albums);
@@ -50,7 +65,7 @@ export const getAlbums = (artistId, offset = 0) => {
 
 export const getAlbum = (albumId) => {
   return authGet(_buildGetAlbumUrl(albumId))
-    .then(res => res.data)
+    .then(extractData)
     .then(data => {
       const {
         id,
@@ -68,11 +83,13 @@ export const getAlbum = (albumId) => {
 
 export const getUserInfo = () => {
   return authGet('https://api.spotify.com/v1/me')
-    .then(res => res.data)
+    .then(extractData)
     .then((res => {
       let { email, id, followers, country } = res;
       return { email, id, followers, country };
     }));
 };
+
+export const extractData = res => res.data;
 
 export const getArtistAlbums = id => authGet(`https://api.spotify.com/v1/artists/${id}/albums`);
