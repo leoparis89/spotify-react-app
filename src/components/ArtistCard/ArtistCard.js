@@ -12,7 +12,7 @@ const ArtistCard = (props) => {
         <div className="card">
           {image ?
             <img className="card-img-top"
-              style={{objectFit: 'cover', height: '250px' }}
+              style={{objectFit: 'cover', height: '20vw' }}
               src={image} alt="Card image cap" />
             :
             <div style={{height:'250px'}}>
