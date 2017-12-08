@@ -10,7 +10,6 @@ import { getProfile } from './profileActions';
 
 export function login(opt) {
   return dispatch => {
-    debugger;
     dispatch(loginStart());
     oAuthLogin(opt)
       .then(()=> {
