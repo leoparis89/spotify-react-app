@@ -14,14 +14,15 @@ const ArtistProfile = (props) => {
       <div className="jumbotron"
         style={divStyle}
       ><h1>{artist.name}</h1>
+        <div>
+          {artist.genres.map(genre => {
+            return (
+              <h4 key={genre}> <span className="badge badge-pill badge-info">{genre}</span></h4>
+            );
+          })}
+        </div>
       </div>
-      <div>
-        {artist.genres.map(genre => {
-          return (
-              <span>      <h4> <span className="badge badge-pill badge-success">{genre}</span></h4></span>
-          );
-        })}
-      </div>
+
       <div className="row">
         {albums.map(album => {
           console.log(album);
