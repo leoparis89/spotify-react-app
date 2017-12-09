@@ -16,15 +16,11 @@ export function search(state = initialState, action) {
     return { ...initialState, query: action.query };
   case SEARCH_ARTISTS_START:
     return { ...state, loading: true };
-    case SEARCH_ARTISTS_COMPLETE:
-    console.log({
-      ...state,
-      ...action.results,
-      loading: false,
-    })
+  case SEARCH_ARTISTS_COMPLETE:
     return {
       ...state,
       ...action.results,
+      artists: [...state.artists, ...action.results.artists],
       loading: false,
     };
   default:
