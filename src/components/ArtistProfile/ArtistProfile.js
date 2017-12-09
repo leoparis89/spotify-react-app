@@ -8,12 +8,13 @@ const ArtistProfile = (props) => {
   };
 
   const { artist, albums } = props;
+  const { followers } = artist;
   return (
 
     <div>
       <div className="jumbotron"
         style={divStyle}
-      ><h1>{artist.name}</h1>
+      ><h1>{artist.name}   </h1>
         <div>
           {artist.genres.map(genre => {
             return (
@@ -21,6 +22,7 @@ const ArtistProfile = (props) => {
             );
           })}
         </div>
+        <h3><span className="badge badge-primary pull-right">followers: {followers}</span> </h3>
       </div>
 
       <div className="row">

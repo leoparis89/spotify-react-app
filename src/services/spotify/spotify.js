@@ -45,6 +45,7 @@ export const getArtist = (id) => {
     .then(extractData)
     .then((data) => {
       data.image = data.images[1].url;
+      data.followers = data.followers.total;
       return data;
     });
 };
