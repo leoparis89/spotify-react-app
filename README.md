@@ -5,19 +5,19 @@ An app created with react and redux that connects to the spotify API and allows 
 ## Getting Started
 
 ### Commands
-Start dev server with hot reload :fire::
+Start dev server with hot reload :fire:
 ```sh
 yarn dev
 ```
-Build your production artifact to build folder:
+Build your production artifact to build folder
 ```sh
 yarn build
 ```
-Build your app and serves it via a tiny express server:
+Build your app and serve it via a tiny express server
 ```sh
 yarn start
 ```
-Run unit tests :white_check_mark::
+Run unit tests :white_check_mark:
 ```sh
 yarn test
 ```
