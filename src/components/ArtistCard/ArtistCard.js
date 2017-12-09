@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './ArtistCard.css';
+import './ArtistCard.scss';
 import { Link } from 'react-router-dom';
 const ArtistCard = (props) => {
 
@@ -11,11 +11,11 @@ const ArtistCard = (props) => {
       <Link to={'artist/' + props.artist.id}>
         <div className="card">
           {image ?
-            <img className="card-img-top"
-              style={{objectFit: 'cover', height: '20vw' }}
+            <img className="card-img-top vignette"
+              style={{objectFit: 'cover'}}
               src={image} alt="Card image cap" />
             :
-            <div style={{height:'250px'}}>
+            <div className="vignette">
               <i className="fa fa-music" style={{fontSize: '200px'}}></i>
             </div>
           }

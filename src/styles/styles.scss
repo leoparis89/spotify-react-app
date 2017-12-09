@@ -1,1 +1,11 @@
 @import "node_modules/bootstrap/scss/bootstrap";
+// Example usage:
+@import "~bootstrap/scss/bootstrap-grid.scss";
+.vignette {
+  height: 100vw;
+}
+@include media-breakpoint-up(md) {
+  .vignette {
+    height: 20vw!important;
+  }
+}

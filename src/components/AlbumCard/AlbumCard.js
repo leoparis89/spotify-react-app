@@ -9,11 +9,11 @@ const AlbumCard = (props) => {
       <Link to={'/album/' + props.album.id}>
         <div className="card">
           {image ?
-            <img className="card-img-top"
-              style={{objectFit: 'cover', height: '20vw' }}
+            <img className="card-img-top vignette"
+              style={{objectFit: 'cover'}}
               src={image} alt="Card image cap" />
             :
-            <div style={{height:'250px'}}>
+            <div className="vignette">
               <i className="fa fa-music" style={{fontSize: '200px'}}></i>
             </div>
           }
