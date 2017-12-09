@@ -8,18 +8,18 @@ const Navbar = (props) => {
   return (
     <nav className="navbar navbar-dark bg-dark">
       <a className="navbar-brand" href="#">Spotify App</a>
-      <ul class="nav">
-        <li class="nav-item">
-          <a className="nav-link" href="#"><Link to="/search">Search</Link></a>
+      <ul className="nav">
+        <li className="nav-item">
+          <Link className="nav-link" to="/search">Search</Link>
         </li>
-        <li class="nav-item">
-          <a className="nav-link" href="#">{id}</a>
+        <li className="nav-item">
+          <Link className="nav-link" to="/profile">{id}</Link>
         </li>
-        <li class="nav-item">
+        <li className="nav-item">
           {email &&  <img src={gravatar.url(email, {s: '40'})}/> }
         </li>
-        <li class="nav-item">
-          <a className="nav-link " href="#" onClick={logout}>logout</a>
+        <li className="nav-item">
+          <a className="nav-link " href="#" onClick={logout}>Logout</a>
         </li>
       </ul>
     </nav>
