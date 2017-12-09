@@ -9,9 +9,7 @@
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-react": "^7.4.0",
     "jest": "^21.2.1",
-    "node-sass": "^4.7.2",
     "react-test-renderer": "^16.0.0",
-    "redux": "^3.7.2",
     "redux-devtools": "^3.4.1",
     "redux-devtools-dock-monitor": "^1.1.2",
     "redux-devtools-log-monitor": "^1.4.0",
@@ -25,6 +23,8 @@
     "test": "jest --watch"
   },
   "dependencies": {
+    "redux": "^3.7.2",
+    "node-sass": "^4.7.2",
     "axios": "^0.17.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
