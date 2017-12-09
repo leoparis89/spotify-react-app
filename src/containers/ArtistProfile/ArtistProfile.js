@@ -1,18 +1,18 @@
 import React from 'react';
 import ArtistProfile from '../../components/ArtistProfile/ArtistProfile';
 import { connect } from 'react-redux';
-import { getAlbums } from '../../redux/actions/artistActions';
+import {getAlbums, getArtist} from '../../redux/actions/artistActions';
 import { onBottomScroll} from'../../services/utils/scroll';
-import {searchArtists} from "../../redux/actions/searchActions";
 
 
 const mapStateToProps = (state, ownProps) => {
   return {
     id: ownProps.match.params.artistId,
     ...state.artist,
-    artist: state.search.artists.find((artist) => {
-      return artist.id === ownProps.match.params.artistId;
-    })
+    artist: state.artist.artist
+    // artist: state.search.artists.find((artist) => {
+    //   return artist.id === ownProps.match.params.artistId;
+    // })
   };
 };
 
@@ -21,7 +21,8 @@ const mapDispatchToProps = (dispatch) => {
     getAlbums: (artistId, offset) => {;
       dispatch(getAlbums(artistId, offset));
     },
-    getArtist: (id) => {;
+    getArtist: (id) => {
+      dispatch(getArtist(id));
     }
   };
 };

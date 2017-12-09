@@ -1,4 +1,4 @@
-import  {getAlbums as getAlbumsFunc} from '../../services/spotify/spotify';
+import  {getAlbums as getAlbumsFunc, getArtist as getArtistFunc} from '../../services/spotify/spotify';
 export const GET_ALBUMS_START = 'GET_ALBUMS_START';
 export const GET_ALBUMS_COMPLETE = 'GET_ALBUMS_COMPLETE';
 export const GET_ALBUMS_FAILED = 'GET_ALBUMS_FAILED';
@@ -19,6 +19,10 @@ export function getAlbums(artistId, offset) {
 export function getArtist(id, offset) {
   return dispatch => {
     dispatch(getArtistStart(id));
+    getArtistFunc(id).then(artist => {
+      
+      dispatch(getArtistComplete(artist));
+    });
   };
 }
 
@@ -38,8 +42,8 @@ export function getArtistStart(id) {
   return { type: GET_ARTIST_START, id };
 }
 
-export function getArtistComplete(result) {
-  return { type: GET_ARTIST_COMPLETE, result };
+export function getArtistComplete(artist) {
+  return { type: GET_ARTIST_COMPLETE, artist };
 }
 
 export function getArtistFailed() {

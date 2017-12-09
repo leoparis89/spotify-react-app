@@ -44,10 +44,8 @@ export const getArtist = (id) => {
   return authGet(_buildGetArtistUrl(id))
     .then(extractData)
     .then((data) => {
-      debugger;
-      let {total, offset, items: artists} = data.artists;
-      artists = _flatenImages(artists);
-      return { total, offset, artists};
+      data.image = data.images[1].url;
+      return data;
     });
 };
 

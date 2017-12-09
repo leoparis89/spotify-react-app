@@ -1,7 +1,7 @@
-import {GET_ALBUMS_START, GET_ALBUMS_COMPLETE} from '../actions/artistActions';
+import {GET_ALBUMS_START, GET_ALBUMS_COMPLETE, GET_ARTIST_START, GET_ARTIST_COMPLETE} from '../actions/artistActions';
 
 const initialState = {
-  artist: {},
+  artist: {genres: []},
   albums: [],
   loading: false,
   wantedOffset: null,
@@ -25,6 +25,14 @@ export function artist(state = initialState, action) {
     return {...state, loading: false, ...result,
       albums: wantedOffset ?  [...savedAlbums,...incAlbums ] : [...incAlbums]
     };
+  }
+  case GET_ARTIST_START:
+  {
+    return {...state, loading: true};
+  }
+  case GET_ARTIST_COMPLETE:
+  {
+    return {...state, loading: false, artist: action.artist};
   }
   default:
     return state;
