@@ -7,7 +7,7 @@ import { onBottomScroll} from'../../services/utils/scroll';
 class Search extends React.Component {
   state = {
     offset: 0
-  }
+  };
 
   delayedCallback = _.debounce((event) => {
     const artistName = event.target.value;
@@ -32,7 +32,7 @@ class Search extends React.Component {
   }
 
   render() {
-    const { total, artists } = this.props;
+    const { total, artists, loading } = this.props;
     return (
       <div>
         <div className='row'>
@@ -47,7 +47,7 @@ class Search extends React.Component {
             return <ArtistCard key={artist.id} artist={artist} />;
           })}
         </div>
-
+        {loading && <div>Loading...</div>}
       </div>
     );
   }

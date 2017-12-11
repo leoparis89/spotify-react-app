@@ -7,7 +7,7 @@ const ArtistProfile = (props) => {
     backgroundSize: 'cover'
   };
 
-  const { artist, albums } = props;
+  const { artist, albums, loading } = props;
   const { followers } = artist;
   return (
 
@@ -24,13 +24,13 @@ const ArtistProfile = (props) => {
         </div>
         <h3><span className="badge badge-primary pull-right">followers: {followers}</span> </h3>
       </div>
-
       <div className="row">
         {albums.map(album => {
           console.log(album);
           return <AlbumCard key={album.id} album={album} />;
         })}
       </div>
+      {loading && <div>Loading...</div>}
     </div >
   );
 };

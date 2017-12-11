@@ -8,8 +8,7 @@ import { onBottomScroll} from'../../services/utils/scroll';
 const mapStateToProps = (state, ownProps) => {
   return {
     id: ownProps.match.params.artistId,
-    ...state.artist,
-    artist: state.artist.artist
+    ...state.artist
     // artist: state.search.artists.find((artist) => {
     //   return artist.id === ownProps.match.params.artistId;
     // })
