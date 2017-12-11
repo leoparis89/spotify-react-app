@@ -11,6 +11,7 @@ import Album from '../../containers/Album/Album';
 import {connect} from 'react-redux';
 import {isLoggedIn} from '../../services/authentication/authentication';
 import {getProfile} from '../../redux/actions/profileActions';
+import {startLogoutTimer} from "../../redux/actions/sessionActions";
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -21,6 +22,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getProfile: () => {
       dispatch(getProfile());
+    },
+    startLogoutTimer: () => {
+      dispatch(startLogoutTimer());
     }
   };
 };
@@ -29,6 +33,7 @@ const mapDispatchToProps = (dispatch) => {
 class App extends Component {
   componentDidMount() {
     if (isLoggedIn()) {
+      this.props.startLogoutTimer();
       this.props.getProfile();
     }
   }

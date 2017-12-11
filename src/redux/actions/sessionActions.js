@@ -4,9 +4,11 @@ export const LOGIN_START = 'LOGIN_START';
 export const LOGIN_COMPLETE = 'LOGIN_COMPLETE';
 export const LOGIN_FAILED = 'LOGIN_FAILED';
 export const LOGOUT = 'LOGOUT';
+export const START_LOGOUT_TIMER = 'START_LOGOUT_TIMER';
 export const START_KEEP_ALIVE = 'START_KEEP_ALIVE';
 export const STOP_KEEP_ALIVE = 'STOP_KEEP_ALIVE';
 import { getProfile } from './profileActions';
+import {getCurrentEpochInSec} from "../../services/utils/date";
 
 export function login(opt) {
   return dispatch => {
@@ -14,6 +16,7 @@ export function login(opt) {
     oAuthLogin(opt)
       .then(()=> {
         dispatch(loginComplete());
+        dispatch(startLogoutTimer());
         dispatch(getProfile());
       })
       .catch(()=> {
@@ -38,6 +41,18 @@ export function loginFailed() {
 export function logout() {
   logoutFunc();
   return { type: LOGOUT };
+}
+
+export function startLogoutTimer() {
+  const currentDate = getCurrentEpochInSec();
+  const expDate = localStorage.getItem('login-date') + 3600;
+  return dispatch => {
+    setTimeout(() => {
+      dispatch(logout());
+    }, (expDate - currentDate) * 1000);
+
+    dispatch({ type: START_LOGOUT_TIMER });
+  };
 }
 
 let interValId;
