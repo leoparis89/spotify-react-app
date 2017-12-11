@@ -35,7 +35,7 @@ export const oAuthLogin = (opt = {}) => {
       if (hash && hash.type == 'access_token') {
         console.log('access ok');
         storage.setToken(hash.access_token);
-        const epochDateInSec = getCurrentEpochInSec;
+        const epochDateInSec = getCurrentEpochInSec();
         storage.setLoginDate(epochDateInSec);
   
         window.removeEventListener('message', handleMessage, true);
