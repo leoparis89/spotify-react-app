@@ -1,25 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Artist card renders correctly 1`] = `
-<a
-  href="artist/9"
-  onClick={[Function]}
+<div
+  className="col-md-3"
 >
-  <div
-    className="col-md-3"
+  <a
+    href="artist/9"
+    onClick={[Function]}
   >
-    <h3>
-      metallica
-    </h3>
     <div
-      className="image"
+      className="card"
     >
       <img
-        alt="metallica"
-        className="img-responsive"
+        alt="Card image cap"
+        className="card-img-top vignette"
         src="htpp://foobar"
+        style={
+          Object {
+            "objectFit": "cover",
+          }
+        }
       />
+      <div
+        className="card-body"
+      >
+        metallica
+      </div>
     </div>
-  </div>
-</a>
+  </a>
+</div>
 `;

@@ -3,6 +3,7 @@ import  * as actions  from '../actions/artistActions';
 
 test('it should create initial state', () => {
   const expected = {
+    artist: {genres: []},
     albums: [],
     loading: false,
     wantedOffset: null,
