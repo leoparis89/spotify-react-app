@@ -18,3 +18,7 @@ export class LocalStorage {
 }
 
 export const storage = new LocalStorage();
+
+export const getLoginDate = () => {
+  return   localStorage.getItem('login-date');
+};

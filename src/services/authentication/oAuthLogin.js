@@ -1,4 +1,5 @@
 import { storage } from '../storage/storage';
+import {getCurrentEpochInSec} from "../utils/date";
 
 export const oAuthLogin = (opt = {}) => {
   return new Promise ((resolve, reject) => {
@@ -34,7 +35,7 @@ export const oAuthLogin = (opt = {}) => {
       if (hash && hash.type == 'access_token') {
         console.log('access ok');
         storage.setToken(hash.access_token);
-        const epochDateInSec = Math.floor(new Date().valueOf() / 1000);
+        const epochDateInSec = getCurrentEpochInSec;
         storage.setLoginDate(epochDateInSec);
   
         window.removeEventListener('message', handleMessage, true);
