@@ -19,7 +19,8 @@
     "lint": "eslint ./src/**.js",
     "dev": "webpack-dev-server -d --hot --history-api-fallback --open",
     "build": "webpack -p && cp public/index.html build/",
-    "start": "yarn build && node server/app.js",
+    "postinstall": "yarn build",
+    "start": "node server/app.js",
     "test": "jest --watch"
   },
   "dependencies": {
