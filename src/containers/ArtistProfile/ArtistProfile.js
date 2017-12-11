@@ -17,7 +17,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getAlbums: (artistId, offset) => {;
+    getAlbums: (artistId, offset) => {
       dispatch(getAlbums(artistId, offset));
     },
     getArtist: (id) => {

@@ -11,7 +11,7 @@ import Album from '../../containers/Album/Album';
 import {connect} from 'react-redux';
 import {isLoggedIn} from '../../services/authentication/authentication';
 import {getProfile} from '../../redux/actions/profileActions';
-import {startLogoutTimer} from "../../redux/actions/sessionActions";
+import {startLogoutTimer} from '../../redux/actions/sessionActions';
 
 const mapStateToProps = (state, ownProps) => {
   return {

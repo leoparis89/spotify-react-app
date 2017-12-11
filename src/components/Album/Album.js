@@ -15,7 +15,7 @@ const Artist = (props) => {
               className="img-fluid" style={{width:'50%'}}
               alt={name} />
             <h3>{name}  </h3>
-            <h4><span class="badge badge-pill badge-primary">{label}</span></h4>
+            <h4><span className="badge badge-pill badge-primary">{label}</span></h4>
           </div>
           <div className="col-6">
             <div>

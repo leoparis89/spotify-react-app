@@ -1,5 +1,5 @@
 import { storage } from '../storage/storage';
-import {getCurrentEpochInSec} from "../utils/date";
+import {getCurrentEpochInSec} from '../utils/date';
 
 export const logout = () => {
   storage.emptyStorage();

@@ -8,7 +8,7 @@ export const START_LOGOUT_TIMER = 'START_LOGOUT_TIMER';
 export const START_KEEP_ALIVE = 'START_KEEP_ALIVE';
 export const STOP_KEEP_ALIVE = 'STOP_KEEP_ALIVE';
 import { getProfile } from './profileActions';
-import {getCurrentEpochInSec} from "../../services/utils/date";
+import {getCurrentEpochInSec} from '../../services/utils/date';
 
 export function login(opt) {
   return dispatch => {
