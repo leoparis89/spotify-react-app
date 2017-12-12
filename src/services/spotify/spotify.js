@@ -1,4 +1,4 @@
-import {authGet} from '../authHttp/authHttp';
+import {authGet, authPut} from '../authHttp/authHttp';
 
 const _buildSearchArtistUrl = (artistName, offset = 0) => {
   let searchParams = new URLSearchParams();
@@ -20,6 +20,10 @@ const _buildGetAlbumUrl = (albumId) => {
 
 const _buildGetArtistUrl = (id) => {
   return `https://api.spotify.com/v1/artists/${id}`;
+};
+
+const _buildSaveAlbumtUrl = (id) => {
+  return `https://api.spotify.com/v1/me/albums?ids=${id}`;
 };
 
 const _flatenImages = (items) => {
@@ -87,6 +91,17 @@ export const getUserInfo = () => {
       let {email, id, followers, country} = res;
       return {email, id, followers, country};
     }));
+};
+
+export const saveAlbum = (id) => {
+  return authPut(_buildSaveAlbumtUrl(id))
+    .then(extractData)
+    .then((data) => {
+
+    })
+    .catch(err => {
+        
+    });
 };
 
 export const extractData = res => res.data;
