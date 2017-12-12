@@ -16,6 +16,7 @@ export function login(opt) {
     oAuthLogin(opt)
       .then(()=> {
         dispatch(loginComplete());
+        debugger;
         dispatch(startLogoutTimer());
         dispatch(getProfile());
       })
@@ -45,7 +46,7 @@ export function logout() {
 
 export function startLogoutTimer() {
   const currentDate = getCurrentEpochInSec();
-  const expDate = localStorage.getItem('login-date') + 3600;
+  const expDate = +localStorage.getItem('login-date') + 3600;
   return dispatch => {
     setTimeout(() => {
       dispatch(logout());
