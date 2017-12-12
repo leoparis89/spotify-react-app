@@ -1,3 +1,6 @@
+const OFF = 0;
+const ERROR = 2;
+
 module.exports = {
   "parser": "babel-eslint",
   "env": {
@@ -39,6 +42,9 @@ module.exports = {
     "semi": [
       "error",
       "always"
-    ]
+    ],
+    'space-before-blocks': ERROR,
+    'no-multi-spaces': ERROR,
+    'brace-style': [ERROR, '1tbs']
   }
 };
