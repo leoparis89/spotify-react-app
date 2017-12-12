@@ -1,4 +1,4 @@
-import  {getAlbum as getAlbumFunc} from '../../services/spotify/spotify';
+import {getAlbum as getAlbumFunc} from '../../services/spotify/spotify';
 export const GET_ALBUM_START = 'GET_ALBUM_START';
 export const GET_ALBUM_COMPLETE = 'GET_ALBUM_COMPLETE';
 export const GET_ALBUM_FAILED = 'GET_ALBUM_FAILED';

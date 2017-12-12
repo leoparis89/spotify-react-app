@@ -5,7 +5,7 @@ export const logout = () => {
   storage.emptyStorage();
 };
 
-export const isLoggedIn = ()  => {
+export const isLoggedIn = () => {
   const epochDateInSec = getCurrentEpochInSec();
   return !!localStorage.getItem('spotify-token') &&
       (epochDateInSec - localStorage.getItem('login-date') < 3600);

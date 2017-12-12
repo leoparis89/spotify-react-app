@@ -1,4 +1,4 @@
-import {getUserInfo}  from '../../services/spotify/spotify';
+import {getUserInfo} from '../../services/spotify/spotify';
 
 export const GET_PROFILE_START = 'GET_PROFILE_START';
 export const GET_PROFILE_COMPLETE = 'GET_PROFILE_COMPLETE';

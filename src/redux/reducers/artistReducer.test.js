@@ -1,5 +1,5 @@
 import {artist} from './artistReducer';
-import  * as actions  from '../actions/artistActions';
+import * as actions from '../actions/artistActions';
 
 test('it should create initial state', () => {
   const expected = {
@@ -16,8 +16,8 @@ test('it should create initial state', () => {
 
 
 
-describe('get albums start ',  () => {
-  it('should set loading state to true and set wanted offset',  () => {
+describe('get albums start ', () => {
+  it('should set loading state to true and set wanted offset', () => {
     const initial = {
       albums: [],
       loading: false,
@@ -40,8 +40,8 @@ describe('get albums start ',  () => {
 });
 
 
-describe('get albums complete ',  () => {
-  it('should recreate a new array of albums if wanted offset equals 0',  () => {
+describe('get albums complete ', () => {
+  it('should recreate a new array of albums if wanted offset equals 0', () => {
     const initial = {
       albums: [{cool: 'buz'}, {nice: 'go'}],
       loading: true,
@@ -64,8 +64,8 @@ describe('get albums complete ',  () => {
   });
 });
 
-describe('get albums complete ',  () => {
-  it('should acumulate on the album array if wanted offset bigger than zero',  () => {
+describe('get albums complete ', () => {
+  it('should acumulate on the album array if wanted offset bigger than zero', () => {
     const initial = {
       albums: [{cool: 'buz'}, {nice: 'go'}],
       loading: true,

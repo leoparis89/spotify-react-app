@@ -23,7 +23,7 @@ export function artist(state = initialState, action) {
     const { result } = action;
     const { result: {albums: incAlbums} } = action;
     return {...state, loading: false, ...result,
-      albums: wantedOffset ?  [...savedAlbums,...incAlbums ] : [...incAlbums]
+      albums: wantedOffset ? [...savedAlbums,...incAlbums ] : [...incAlbums]
     };
   }
   case GET_ARTIST_START:

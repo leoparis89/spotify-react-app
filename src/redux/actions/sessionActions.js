@@ -1,5 +1,5 @@
 import {oAuthLogin} from '../../services/authentication/oAuthLogin';
-import  { logout as logoutFunc } from '../../services/authentication/authentication';
+import { logout as logoutFunc } from '../../services/authentication/authentication';
 export const LOGIN_START = 'LOGIN_START';
 export const LOGIN_COMPLETE = 'LOGIN_COMPLETE';
 export const LOGIN_FAILED = 'LOGIN_FAILED';
@@ -16,7 +16,7 @@ export function login(opt) {
     oAuthLogin(opt)
       .then(()=> {
         dispatch(loginComplete());
-        debugger;
+        
         dispatch(startLogoutTimer());
         dispatch(getProfile());
       })

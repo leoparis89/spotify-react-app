@@ -43,9 +43,9 @@ class App extends Component {
       <Router>
         <div className="App">
           <Switch>
-            <PublicRoute  path='/login' component={Login}
+            <PublicRoute path='/login' component={Login}
             />
-            <PublicRoute  path='/proxy' component={Proxy} />
+            <PublicRoute path='/proxy' component={Proxy} />
             <PrivateRoute path='/search' component={SearchArtist} />
             <PrivateRoute path='/artist/:artistId' component={ArtistProfile} />
             <PrivateRoute path='/album/:albumId' component={Album} />

@@ -22,8 +22,7 @@ class PrivateRoute extends React.Component {
     return (
       <Route
         {...rest}
-        render={(props) =>
-        {      
+        render={(props) => {      
           const foo = isloggedIn ?
             <div><Navbar /><Component {...props} /></div>
             :

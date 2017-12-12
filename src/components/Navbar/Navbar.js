@@ -16,7 +16,7 @@ const Navbar = (props) => {
           <Link className="nav-link" to="/profile">{id}</Link>
         </li>
         <li className="nav-item">
-          {email &&  <img src={gravatar.url(email, {s: '40'})}/> }
+          {email && <img src={gravatar.url(email, {s: '40'})}/> }
         </li>
         <li className="nav-item">
           <a className="nav-link " href="#" onClick={logout}>Logout</a>
