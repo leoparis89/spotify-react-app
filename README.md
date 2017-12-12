@@ -2,6 +2,7 @@
 
 An app created with react and redux that connects to the spotify API and allows you to play around. :tropical_drink:
 
+[Demo](https://spotify-react-app.herokuapp.com)
 ## Getting Started
 
 ### Commands
