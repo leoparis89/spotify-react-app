@@ -22,7 +22,7 @@ export function session(state = initialState, action) {
       isLoggedIn: true
     };
   case LOGOUT:
-    return { ...state, isLoggedIn: false };
+    return {...state, isLoggedIn: false};
   default:
     return state;
   }

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 const AlbumCard = (props) => {
   const {name, image, album_type} = props.album;
 

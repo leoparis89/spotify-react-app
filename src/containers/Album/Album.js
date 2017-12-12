@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { getAlbum } from '../../redux/actions/albumActions';
+import {getAlbum} from '../../redux/actions/albumActions';
 import Album from '../../components/Album/Album';
 const mapStateToProps = (state, ownProps) => {
   return {

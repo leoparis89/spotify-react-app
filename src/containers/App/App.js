@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './App.css';
-import { BrowserRouter as Router, Switch, Redirect } from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Redirect} from 'react-router-dom';
 import Login from '../../containers/Login/Login';
 import Proxy from '../../components/Proxy/Proxy';
 import SearchArtist from '../../containers/SearchArtist/SearchArtist'; 

@@ -27,25 +27,25 @@ export function getArtist(id, offset) {
 }
 
 export function getAlbumsStart(wantedOffset) {
-  return { type: GET_ALBUMS_START, wantedOffset };
+  return {type: GET_ALBUMS_START, wantedOffset};
 }
   
 export function getAlbumsComplete(result) {
-  return { type: GET_ALBUMS_COMPLETE, result };
+  return {type: GET_ALBUMS_COMPLETE, result};
 }
   
 export function getAlbumsFailed() {
-  return { type: GET_ALBUMS_FAILED };
+  return {type: GET_ALBUMS_FAILED};
 }
 
 export function getArtistStart(id) {
-  return { type: GET_ARTIST_START, id };
+  return {type: GET_ARTIST_START, id};
 }
 
 export function getArtistComplete(artist) {
-  return { type: GET_ARTIST_COMPLETE, artist };
+  return {type: GET_ARTIST_COMPLETE, artist};
 }
 
 export function getArtistFailed() {
-  return { type: GET_ARTIST_FAILED };
+  return {type: GET_ARTIST_FAILED};
 }

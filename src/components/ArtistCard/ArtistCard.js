@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './ArtistCard.scss';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 const ArtistCard = (props) => {
 
-  const {name, image } = props.artist;
+  const {name, image} = props.artist;
   return (
 
     <div className="col-md-3">

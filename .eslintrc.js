@@ -50,7 +50,9 @@ module.exports = {
     'keyword-spacing': [ERROR, {after: true, before: true}],
     'eol-last': ERROR,
     'eqeqeq': [ERROR, 'allow-null'],
-    'no-useless-concat': OFF
+    'no-useless-concat': OFF,
+    'object-curly-spacing': [ERROR, 'never']
+
     // 'comma-dangle': [ERROR, 'always-multiline'],
   }
 };

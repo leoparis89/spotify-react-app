@@ -15,14 +15,14 @@ export function getAlbum(albumId) {
 }
   
 export function getAlbumStart() {
-  return { type: GET_ALBUM_START };
+  return {type: GET_ALBUM_START};
 }
   
 export function getAlbumComplete(albumData) {
-  return { type: GET_ALBUM_COMPLETE, albumData };
+  return {type: GET_ALBUM_COMPLETE, albumData};
 }
   
 export function getAlbumFailed() {
-  return { type: GET_ALBUM_FAILED };
+  return {type: GET_ALBUM_FAILED};
 }
   

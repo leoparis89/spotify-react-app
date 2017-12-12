@@ -1,6 +1,6 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
+import {Route, Redirect} from 'react-router-dom';
+import {connect} from 'react-redux';
 
 
 const mapStateToProps = (state, ownProps) => {
@@ -17,7 +17,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 class PublicRoute extends React.Component {
   render() {
     
-    const { component: Component, isloggedIn, ...rest } = this.props;
+    const {component: Component, isloggedIn, ...rest} = this.props;
     return (
       <Route
         {...rest}
@@ -25,7 +25,7 @@ class PublicRoute extends React.Component {
           !isloggedIn ?
             <Component {...props} />
             :
-            <Redirect to={{ pathname: '/search', state: { from: props.location } }} />}
+            <Redirect to={{pathname: '/search', state: {from: props.location}}} />}
       />
     );
   }

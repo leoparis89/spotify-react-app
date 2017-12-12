@@ -17,14 +17,14 @@ export function getProfile() {
 }
   
 export function getProfileStart() {
-  return { type: GET_PROFILE_START };
+  return {type: GET_PROFILE_START};
 }
   
 export function getProfileComplete(profile) {
-  return { type: GET_PROFILE_COMPLETE, profile };
+  return {type: GET_PROFILE_COMPLETE, profile};
 }
   
 export function getProfileFailed() {
-  return { type: GET_PROFILE_FAILED };
+  return {type: GET_PROFILE_FAILED};
 }
   

@@ -7,8 +7,8 @@ const ArtistProfile = (props) => {
     backgroundSize: 'cover'
   };
 
-  const { artist, albums, loading } = props;
-  const { followers } = artist;
+  const {artist, albums, loading} = props;
+  const {followers} = artist;
   return (
 
     <div>

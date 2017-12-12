@@ -1,4 +1,4 @@
-import { authGet } from '../authHttp/authHttp';
+import {authGet} from '../authHttp/authHttp';
 
 const _buildSearchArtistUrl = (artistName, offset = 0) => {
   let searchParams = new URLSearchParams();
@@ -36,7 +36,7 @@ export const searchArtists = (artistName, offset = 0) => {
     .then((data) => {
       let {total, offset, items: artists} = data.artists;
       artists = _flatenImages(artists);
-      return { total, offset, artists};
+      return {total, offset, artists};
     });
 };
 
@@ -56,7 +56,7 @@ export const getAlbums = (artistId, offset = 0) => {
     .then(data => {
       let {total, offset, items: albums} = data;
       albums = _flatenImages(albums);
-      return { total, offset, albums};
+      return {total, offset, albums};
     })
     .catch((err) => {
     });
@@ -84,8 +84,8 @@ export const getUserInfo = () => {
   return authGet('https://api.spotify.com/v1/me')
     .then(extractData)
     .then((res => {
-      let { email, id, followers, country } = res;
-      return { email, id, followers, country };
+      let {email, id, followers, country} = res;
+      return {email, id, followers, country};
     }));
 };
 

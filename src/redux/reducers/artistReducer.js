@@ -14,14 +14,14 @@ export function artist(state = initialState, action) {
   switch (action.type) {
   case GET_ALBUMS_START:
   { 
-    const { wantedOffset } = action;
+    const {wantedOffset} = action;
     return {...state, loading: true, wantedOffset};
   }
   case GET_ALBUMS_COMPLETE:
   {
-    const {albums: savedAlbums, wantedOffset } = state;
-    const { result } = action;
-    const { result: {albums: incAlbums} } = action;
+    const {albums: savedAlbums, wantedOffset} = state;
+    const {result} = action;
+    const {result: {albums: incAlbums}} = action;
     return {...state, loading: false, ...result,
       albums: wantedOffset ? [...savedAlbums,...incAlbums ] : [...incAlbums]
     };

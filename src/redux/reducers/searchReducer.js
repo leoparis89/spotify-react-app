@@ -13,9 +13,9 @@ const initialState = {
 export function search(state = initialState, action) {
   switch (action.type) {
   case SET_QUERY:
-    return { ...initialState, query: action.query };
+    return {...initialState, query: action.query};
   case SEARCH_ARTISTS_START:
-    return { ...state, loading: true };
+    return {...state, loading: true};
   case SEARCH_ARTISTS_COMPLETE:
     return {
       ...state,

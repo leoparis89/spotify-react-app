@@ -1,4 +1,4 @@
-import { storage } from '../storage/storage';
+import {storage} from '../storage/storage';
 import {getCurrentEpochInSec} from '../utils/date';
 
 export const oAuthLogin = (opt = {}) => {
@@ -48,7 +48,7 @@ export const oAuthLogin = (opt = {}) => {
   
     window.addEventListener('message', handleMessage, true);
 
-    const { covert } = opt;
+    const {covert} = opt;
     if (covert) {
       window.open(url,
         'theFrame'

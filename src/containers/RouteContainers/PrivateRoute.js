@@ -1,7 +1,7 @@
 import Navbar from '../Navbar/Navbar';
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
+import {Route, Redirect} from 'react-router-dom';
+import {connect} from 'react-redux';
 
 
 const mapStateToProps = (state, ownProps) => {
@@ -17,7 +17,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
 class PrivateRoute extends React.Component {
   render() {
-    const { component: Component, isloggedIn, ...rest } = this.props;
+    const {component: Component, isloggedIn, ...rest} = this.props;
     
     return (
       <Route
@@ -26,7 +26,7 @@ class PrivateRoute extends React.Component {
           const foo = isloggedIn ?
             <div><Navbar /><Component {...props} /></div>
             :
-            <Redirect to={{ pathname: '/login', state: { from: props.location } }} />;
+            <Redirect to={{pathname: '/login', state: {from: props.location}}} />;
           return foo;
         }}
       />

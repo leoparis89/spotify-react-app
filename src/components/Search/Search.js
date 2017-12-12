@@ -2,7 +2,7 @@ import React from 'react';
 import * as _ from 'underscore';
 import ArtistCard from '../ArtistCard/ArtistCard';
 import PropTypes from 'prop-types';
-import { onBottomScroll} from '../../services/utils/scroll';
+import {onBottomScroll} from '../../services/utils/scroll';
 
 class Search extends React.Component {
   state = {
@@ -25,14 +25,14 @@ class Search extends React.Component {
   }
 
   increment = () => {
-    const {searchArtists, query, offset, loading } = this.props;
+    const {searchArtists, query, offset, loading} = this.props;
     if (!loading) {
       searchArtists(query, offset + 20);
     }
   }
 
   render() {
-    const { total, artists, loading } = this.props;
+    const {total, artists, loading} = this.props;
     return (
       <div>
         <div className='row'>
