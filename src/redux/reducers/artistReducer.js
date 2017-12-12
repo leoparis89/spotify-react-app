@@ -19,7 +19,7 @@ export function artist(state = initialState, action) {
   }
   case GET_ALBUMS_COMPLETE:
   {
-    const { albums: savedAlbums, wantedOffset } = state;
+    const {albums: savedAlbums, wantedOffset } = state;
     const { result } = action;
     const { result: {albums: incAlbums} } = action;
     return {...state, loading: false, ...result,
