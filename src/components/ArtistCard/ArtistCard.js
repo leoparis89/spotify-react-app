@@ -4,7 +4,7 @@ import './ArtistCard.scss';
 import {Link} from 'react-router-dom';
 const ArtistCard = (props) => {
 
-  const {name, image} = props.artist;
+  const {name, image, popularity} = props.artist;
   return (
 
     <div className="col-md-3">
@@ -19,24 +19,12 @@ const ArtistCard = (props) => {
               <i className="fa fa-music" style={{fontSize: '200px'}}></i>
             </div>
           }
-          <div className="card-body">{name}</div>
+          <h3 className="card-body">{name}</h3>
+          <p><span class="badge badge-pill badge-primary"> Popularity: {popularity}</span></p>
         </div>
+
       </Link>
     </div>
-
-
-    //   <Link to={'artist/' + props.artist.id}>
-    //   <div className="col-md-3">
-    //     <h3>
-    //       {props.artist.name}
-    //     </h3>
-    //     <div className="image">
-    //       <img src={props.artist.image}
-    //         className="img-responsive"
-    //         alt={props.artist.name} />
-    //     </div>
-    //   </div>
-    // </Link>
   );
 };
 
