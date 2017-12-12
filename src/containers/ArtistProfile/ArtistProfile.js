@@ -2,7 +2,7 @@ import React from 'react';
 import ArtistProfile from '../../components/ArtistProfile/ArtistProfile';
 import { connect } from 'react-redux';
 import {getAlbums, getArtist} from '../../redux/actions/artistActions';
-import { onBottomScroll} from'../../services/utils/scroll';
+import { onBottomScroll} from '../../services/utils/scroll';
 
 
 const mapStateToProps = (state, ownProps) => {
@@ -38,7 +38,7 @@ class ArtistProfileContainer extends React.Component {
 
   tryGetNextAlbums = () => {
     const {loading, albums, total } = this.props;
-    if(!loading && (albums.length < total)) {
+    if (!loading && (albums.length < total)) {
       this.getNextAlbums();
     }
   }

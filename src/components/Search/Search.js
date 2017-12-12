@@ -2,7 +2,7 @@ import React from 'react';
 import * as _ from 'underscore';
 import ArtistCard from '../ArtistCard/ArtistCard';
 import PropTypes from 'prop-types';
-import { onBottomScroll} from'../../services/utils/scroll';
+import { onBottomScroll} from '../../services/utils/scroll';
 
 class Search extends React.Component {
   state = {

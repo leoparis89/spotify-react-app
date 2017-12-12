@@ -45,6 +45,7 @@ module.exports = {
     ],
     'space-before-blocks': ERROR,
     'no-multi-spaces': ERROR,
-    'brace-style': [ERROR, '1tbs']
+    'brace-style': [ERROR, '1tbs'],
+    'keyword-spacing': [ERROR, {after: true, before: true}]
   }
 };
