@@ -48,7 +48,9 @@ module.exports = {
     'no-multi-spaces': ERROR,
     'brace-style': [ERROR, '1tbs'],
     'keyword-spacing': [ERROR, {after: true, before: true}],
-    'eol-last': ERROR
+    'eol-last': ERROR,
+    'eqeqeq': [ERROR, 'allow-null'],
+    'no-useless-concat': OFF
     // 'comma-dangle': [ERROR, 'always-multiline'],
   }
 };
