@@ -7,7 +7,7 @@ export const authGet = (url) => {
   return axios.get(url, buildHeaders());
 };
 
-export const authPut = (url) => {
-  return axios.put(url, buildHeaders());
+export const authPut = (url, data = {}) => {
+  return axios.put(url, data, buildHeaders());
 };
 

@@ -2,12 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 const AlbumCard = (props) => {
-  const {name, image, album_type} = props.album;
+  const {name, image, album_type, id} = props.album;
+  const saveAlbum = props.saveAlbum.bind(null, id);
 
   return (
     <div className="col-md-3">
-      <Link to={'/album/' + props.album.id}>
-        <div className="card">
+      <div className="card">
+        <Link to={'/album/' + id}>
           {image ?
             <img className="card-img-top vignette"
               style={{objectFit: 'cover'}}
@@ -21,8 +22,9 @@ const AlbumCard = (props) => {
             <h4 className="card-title">{name}</h4>
             <h5><span className="badge badge-info">{album_type}</span></h5>
           </div>
-        </div>
-      </Link>
+        </Link>
+        <i onClick={saveAlbum} className="fa fa-heart-o" aria-hidden="true"></i>
+      </div>
     </div>
   );
 };

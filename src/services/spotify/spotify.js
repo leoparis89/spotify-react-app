@@ -95,12 +95,9 @@ export const getUserInfo = () => {
 
 export const saveAlbum = (id) => {
   return authPut(_buildSaveAlbumtUrl(id))
-    .then(extractData)
-    .then((data) => {
-
+    .then((res) => {
     })
     .catch(err => {
-        
     });
 };
 
