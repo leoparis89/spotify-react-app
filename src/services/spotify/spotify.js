@@ -1,6 +1,7 @@
 import {authGet, authPut} from '../authHttp/authHttp';
 import {encodeQueryData} from '../utils/ajax';
 
+<<<<<<< HEAD
 export const _buildSearchArtistUrl = (artistName, offset = 0) => {
   // let searchParams = new URLSearchParams();
   // searchParams.append('q', artistName);
@@ -8,14 +9,25 @@ export const _buildSearchArtistUrl = (artistName, offset = 0) => {
   // searchParams.append('offset', offset);
   const params = {q: artistName, type: 'artist', offset: offset};
   return `https://api.spotify.com/v1/search?${encodeQueryData(params)}`;
+=======
+const baseUrl = 'https://api.spotify.com/v1';
+
+const _buildSearchArtistUrl = (artistName, offset = 0) => {
+  let searchParams = new URLSearchParams();
+  searchParams.append('q', artistName);
+  searchParams.append('type', 'artist');
+  searchParams.append('offset', offset);
+  return `${baseUrl}/search?${searchParams.toString()}`;
+>>>>>>> b92881e07e4bba6464bfd8ad4a7544d3720aabdd
 };
 
 export const _buildGetAlbumsUrl = (artistId, offset = 0) => {
   const params = new URLSearchParams();
   params.append('offset', offset);
-  return `https://api.spotify.com/v1/artists/${artistId}/albums?${params.toString()}`;
+  return `${baseUrl}/artists/${artistId}/albums?${params.toString()}`;
 };
 
+<<<<<<< HEAD
 export const _buildGetAlbumUrl = (albumId) => {
   return `https://api.spotify.com/v1/albums/${albumId}`;
 };
@@ -26,6 +38,22 @@ export const _buildGetArtistUrl = (id) => {
 
 export const _buildSaveAlbumtUrl = (id) => {
   return `https://api.spotify.com/v1/me/albums?ids=${id}`;
+=======
+const _buildGetAlbumUrl = (albumId) => {
+  return `${baseUrl}/albums/${albumId}`;
+};
+
+const _buildGetArtistUrl = (id) => {
+  return `${baseUrl}/artists/${id}`;
+};
+
+const _buildSaveAlbumtUrl = (id) => {
+  return `${baseUrl}/me/albums?ids=${id}`;
+};
+
+const _buildGetSavedAlbumstUrl = () => {
+  return `${baseUrl}/me/albums`;
+>>>>>>> b92881e07e4bba6464bfd8ad4a7544d3720aabdd
 };
 
 const _flatenImages = (items) => {
@@ -50,9 +78,10 @@ export const getArtist = (id) => {
   return authGet(_buildGetArtistUrl(id))
     .then(extractData)
     .then((data) => {
-      data.image = data.images[1].url;
-      data.followers = data.followers.total;
-      return data;
+      const {images, followers: {total: followers}} = data;
+      let image;
+      images.length && ([{url: image}] = images);
+      return {...data, image, followers};
     });
 };
 
@@ -65,6 +94,7 @@ export const getAlbums = (artistId, offset = 0) => {
       return {total, offset, albums};
     })
     .catch((err) => {
+      
     });
 };
 
@@ -97,15 +127,19 @@ export const getUserInfo = () => {
 
 export const saveAlbum = (id) => {
   return authPut(_buildSaveAlbumtUrl(id))
-    .then(extractData)
-    .then((data) => {
-
+    .then((res) => {
     })
     .catch(err => {
-        
     });
 };
 
-export const extractData = res => res.data;
+export const getSavedAlbums = () => {
+  return authGet(_buildGetSavedAlbumstUrl())
+    .then(extractData)
+    .then((res) => {
+      return res.items;
+    });
+};
 
 export const getArtistAlbums = id => authGet(`https://api.spotify.com/v1/artists/${id}/albums`);
+const extractData = res => res.data;

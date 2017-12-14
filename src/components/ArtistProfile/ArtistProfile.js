@@ -7,7 +7,7 @@ const ArtistProfile = (props) => {
     backgroundSize: 'cover'
   };
 
-  const {artist, albums, loading} = props;
+  const {artist, albums, loading, saveAlbum} = props;
   const {followers} = artist;
   return (
 
@@ -26,8 +26,7 @@ const ArtistProfile = (props) => {
       </div>
       <div className="row">
         {albums.map(album => {
-          console.log(album);
-          return <AlbumCard key={album.id} album={album} />;
+          return <AlbumCard key={album.id} album={album} saveAlbum={saveAlbum} />;
         })}
       </div>
       {loading && <div>Loading...</div>}
