@@ -109,11 +109,11 @@ export const saveAlbum = (id) => {
     });
 };
 
-export const getSavedAlbums = (id) => {
-  return authPut(_buildGetSavedAlbumstUrl())
+export const getSavedAlbums = () => {
+  return authGet(_buildGetSavedAlbumstUrl())
+    .then(extractData)
     .then((res) => {
-    })
-    .catch(err => {
+      return res.items;
     });
 };
 
