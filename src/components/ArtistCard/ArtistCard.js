@@ -20,7 +20,7 @@ const ArtistCard = (props) => {
             </div>
           }
           <h3 className="card-body">{name}</h3>
-          <p><span class="badge badge-pill badge-primary"> Popularity: {popularity}</span></p>
+          <p><span className="badge badge-pill badge-primary"> Popularity: {popularity}</span></p>
         </div>
 
       </Link>
