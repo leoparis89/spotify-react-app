@@ -1,7 +1,6 @@
 import {authGet, authPut} from '../authHttp/authHttp';
 import {encodeQueryData} from '../utils/ajax';
 
-<<<<<<< HEAD
 export const _buildSearchArtistUrl = (artistName, offset = 0) => {
   // let searchParams = new URLSearchParams();
   // searchParams.append('q', artistName);
@@ -9,16 +8,6 @@ export const _buildSearchArtistUrl = (artistName, offset = 0) => {
   // searchParams.append('offset', offset);
   const params = {q: artistName, type: 'artist', offset: offset};
   return `https://api.spotify.com/v1/search?${encodeQueryData(params)}`;
-=======
-const baseUrl = 'https://api.spotify.com/v1';
-
-const _buildSearchArtistUrl = (artistName, offset = 0) => {
-  let searchParams = new URLSearchParams();
-  searchParams.append('q', artistName);
-  searchParams.append('type', 'artist');
-  searchParams.append('offset', offset);
-  return `${baseUrl}/search?${searchParams.toString()}`;
->>>>>>> b92881e07e4bba6464bfd8ad4a7544d3720aabdd
 };
 
 export const _buildGetAlbumsUrl = (artistId, offset = 0) => {
@@ -27,18 +16,6 @@ export const _buildGetAlbumsUrl = (artistId, offset = 0) => {
   return `${baseUrl}/artists/${artistId}/albums?${params.toString()}`;
 };
 
-<<<<<<< HEAD
-export const _buildGetAlbumUrl = (albumId) => {
-  return `https://api.spotify.com/v1/albums/${albumId}`;
-};
-
-export const _buildGetArtistUrl = (id) => {
-  return `https://api.spotify.com/v1/artists/${id}`;
-};
-
-export const _buildSaveAlbumtUrl = (id) => {
-  return `https://api.spotify.com/v1/me/albums?ids=${id}`;
-=======
 const _buildGetAlbumUrl = (albumId) => {
   return `${baseUrl}/albums/${albumId}`;
 };
@@ -53,7 +30,6 @@ const _buildSaveAlbumtUrl = (id) => {
 
 const _buildGetSavedAlbumstUrl = () => {
   return `${baseUrl}/me/albums`;
->>>>>>> b92881e07e4bba6464bfd8ad4a7544d3720aabdd
 };
 
 const _flatenImages = (items) => {
