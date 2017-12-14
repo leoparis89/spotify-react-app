@@ -48,9 +48,10 @@ export const getArtist = (id) => {
   return authGet(_buildGetArtistUrl(id))
     .then(extractData)
     .then((data) => {
-      data.image = data.images[1].url;
-      data.followers = data.followers.total;
-      return data;
+      const {images, followers: {total: followers}} = data;
+      let image;
+      images.length && ([{url: image}] = images);
+      return {...data, image, followers};
     });
 };
 
@@ -63,6 +64,7 @@ export const getAlbums = (artistId, offset = 0) => {
       return {total, offset, albums};
     })
     .catch((err) => {
+      
     });
 };
 
