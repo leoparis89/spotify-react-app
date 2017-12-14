@@ -26,7 +26,6 @@ const ArtistProfile = (props) => {
       </div>
       <div className="row">
         {albums.map(album => {
-          console.log(album);
           return <AlbumCard key={album.id} album={album} saveAlbum={saveAlbum} />;
         })}
       </div>
