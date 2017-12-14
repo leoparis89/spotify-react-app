@@ -1,28 +1,30 @@
 import {authGet, authPut} from '../authHttp/authHttp';
+import {encodeQueryData} from '../utils/ajax';
 
-const _buildSearchArtistUrl = (artistName, offset = 0) => {
-  let searchParams = new URLSearchParams();
-  searchParams.append('q', artistName);
-  searchParams.append('type', 'artist');
-  searchParams.append('offset', offset);
-  return 'https://api.spotify.com/v1/search?' + searchParams.toString();
+export const _buildSearchArtistUrl = (artistName, offset = 0) => {
+  // let searchParams = new URLSearchParams();
+  // searchParams.append('q', artistName);
+  // searchParams.append('type', 'artist');
+  // searchParams.append('offset', offset);
+  const params = {q: artistName, type: 'artist', offset: offset};
+  return `https://api.spotify.com/v1/search?${encodeQueryData(params)}`;
 };
 
-const _buildGetAlbumsUrl = (artistId, offset = 0) => {
+export const _buildGetAlbumsUrl = (artistId, offset = 0) => {
   const params = new URLSearchParams();
   params.append('offset', offset);
   return `https://api.spotify.com/v1/artists/${artistId}/albums?${params.toString()}`;
 };
 
-const _buildGetAlbumUrl = (albumId) => {
+export const _buildGetAlbumUrl = (albumId) => {
   return `https://api.spotify.com/v1/albums/${albumId}`;
 };
 
-const _buildGetArtistUrl = (id) => {
+export const _buildGetArtistUrl = (id) => {
   return `https://api.spotify.com/v1/artists/${id}`;
 };
 
-const _buildSaveAlbumtUrl = (id) => {
+export const _buildSaveAlbumtUrl = (id) => {
   return `https://api.spotify.com/v1/me/albums?ids=${id}`;
 };
 
