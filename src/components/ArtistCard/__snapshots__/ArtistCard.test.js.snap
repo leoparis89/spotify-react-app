@@ -28,7 +28,7 @@ exports[`Artist card renders correctly 1`] = `
       </h3>
       <p>
         <span
-          class="badge badge-pill badge-primary"
+          className="badge badge-pill badge-primary"
         >
            Popularity: 
         </span>
