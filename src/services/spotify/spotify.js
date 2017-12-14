@@ -1,6 +1,8 @@
 import {authGet, authPut} from '../authHttp/authHttp';
 import {encodeQueryData} from '../utils/ajax';
 
+const baseUrl= 'https://api.spotify.com/v1';
+
 export const _buildSearchArtistUrl = (artistName, offset = 0) => {
   // let searchParams = new URLSearchParams();
   // searchParams.append('q', artistName);
