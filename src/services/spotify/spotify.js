@@ -32,11 +32,14 @@ export const _buildGetSavedAlbumstUrl = () => {
 };
 
 export const _flatenImages = (items) => {
-  return items.map((item) => {
-    const [image] = item.images;
-    item.image = image && image.url;
-    return item;
-  });
+  return items.map((item) => _setImage(item));
+};
+
+export const _setImage = (el) => {
+  const [image] = el.images;
+  delete el.images;
+  el.image = image && image.url;
+  return el;
 };
 
 export const searchArtists = (artistName, offset = 0) => {
@@ -92,7 +95,7 @@ export const getAlbum = (albumId) => {
 };
 
 export const getUserInfo = () => {
-  return authGet('https://api.spotify.com/v1/me')
+  return authGet(`${baseUrl}/me`)
     .then(extractData)
     .then((res => {
       let {email, id, followers, country} = res;

@@ -1,6 +1,6 @@
 import {
   _buildGetAlbumsUrl, _buildGetAlbumUrl, _buildGetArtistUrl, _buildGetSavedAlbumstUrl, _buildSaveAlbumtUrl,
-  _buildSearchArtistUrl
+  _buildSearchArtistUrl, _setImage
 } from './spotify';
 
 
@@ -36,3 +36,10 @@ test('Spotify functions call the right urls', () => {
     'https://api.spotify.com/v1/me/albums'
   );
 });
+
+test('setImage should mutate object correctly', () => {
+  expect( _setImage({images: [{url: 'foo'}]})).toEqual({image: 'foo'});
+  expect( _setImage({images: []})).toEqual({});
+});
+
+
