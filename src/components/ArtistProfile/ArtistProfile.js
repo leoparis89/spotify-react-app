@@ -1,5 +1,6 @@
 import React from 'react';
 import AlbumCard from '../AlbumCard/AlbumCard';
+import {Spiner} from '../Spinner/Spinner';
 const ArtistProfile = (props) => {
 
   var divStyle = {
@@ -29,7 +30,7 @@ const ArtistProfile = (props) => {
           return <AlbumCard key={album.id} album={album} saveAlbum={saveAlbum} />;
         })}
       </div>
-      {loading && <div>Loading...</div>}
+      {loading && <Spiner />}
     </div >
   );
 };

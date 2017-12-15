@@ -3,6 +3,7 @@ import * as _ from 'underscore';
 import ArtistCard from '../ArtistCard/ArtistCard';
 import PropTypes from 'prop-types';
 import {onBottomScroll} from '../../services/utils/scroll';
+import {Spiner} from '../Spinner/Spinner';
 
 class Search extends React.Component {
   state = {
@@ -47,7 +48,7 @@ class Search extends React.Component {
             return <ArtistCard key={artist.id} artist={artist} />;
           })}
         </div>
-        {loading && <div>Loading...</div>}
+        {loading && <Spiner />}
       </div>
     );
   }
