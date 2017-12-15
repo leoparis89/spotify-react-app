@@ -8,7 +8,7 @@ describe('Artist card', () => {
     
   const testProps = {
     artist: {
-      id:9,
+      id:'xyz',
       name:'metallica',
       image: 'htpp://foobar'
     }
