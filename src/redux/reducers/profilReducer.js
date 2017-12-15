@@ -1,7 +1,6 @@
 import {GET_PROFILE_COMPLETE} from '../actions/profileActions';
 
 const initialState = {
-  info: null
 };
       
 export function profile(state = initialState, action) {
