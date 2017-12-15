@@ -13,7 +13,7 @@ import {isLoggedIn} from '../../services/authentication/authentication';
 import {getProfile} from '../../redux/actions/profileActions';
 import {startLogoutTimer} from '../../redux/actions/sessionActions';
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   return {
   };
 };

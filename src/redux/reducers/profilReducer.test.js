@@ -16,5 +16,5 @@ test('GET_PROFILE_COMPLETE case should return correct state', () => {
     foo: 'bar',
     cool: 'baz'
   };
-  expect(profile({}, getProfileComplete({foo: 'bar', cool: 'baz'}))).toEqual(expected);
+  expect(profile(initial, getProfileComplete({foo: 'bar', cool: 'baz'}))).toEqual(expected);
 });

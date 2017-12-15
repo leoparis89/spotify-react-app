@@ -22,7 +22,7 @@ export function getAlbums(artistId, offset) {
   };
 }
 
-export function getArtist(id, offset) {
+export function getArtist(id) {
   return dispatch => {
     dispatch(getArtistStart(id));
     getArtistFunc(id).then(artist => {
@@ -36,11 +36,11 @@ export function saveAlbum(id) {
   return dispatch => {
     dispatch(saveAlbumStart());
     saveAlbumFunc(id)
-      .then(res => {
+      .then(() => {
         notifyInfo('album saved!');
         dispatch(saveAlbumComplete());
       })
-      .catch(err => {
+      .catch(() => {
         dispatch(saveAlbumFailed());
       });
   };

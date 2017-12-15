@@ -68,7 +68,7 @@ export const getAlbums = (artistId, offset = 0) => {
       albums = _flatenImages(albums);
       return {total, offset, albums};
     })
-    .catch((err) => {
+    .catch(() => {
       
     });
 };
@@ -87,7 +87,7 @@ export const getAlbum = (albumId) => {
         images: [{url: image}]} = data;
       return {id, name, label, release_date, album_type, artists, tracks, image};
     })
-    .catch((err) => {
+    .catch(() => {
     });
 };
 
@@ -102,9 +102,9 @@ export const getUserInfo = () => {
 
 export const saveAlbum = (id) => {
   return authPut(_buildSaveAlbumtUrl(id))
-    .then((res) => {
+    .then(() => {
     })
-    .catch(err => {
+    .catch(() => {
     });
 };
 

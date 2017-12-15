@@ -59,7 +59,7 @@ export function startLogoutTimer() {
 let interValId;
 export function startKeepAlive() {
   return dispatch => {
-    const minute = 60 * 1000;
+    // const minute = 60 * 1000;
     // renew token in hidden iframe every 50 minutes
     interValId = setInterval(() => dispatch(login({covert: true})), 5000);
     dispatch({type: START_KEEP_ALIVE});

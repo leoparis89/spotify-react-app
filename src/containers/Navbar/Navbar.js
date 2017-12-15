@@ -3,12 +3,12 @@ import Navbar from '../../components/Navbar/Navbar';
 import {logout, stopKeepAlive} from '../../redux/actions/sessionActions';
 
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   const {id, email} = state.profile;
   return {id, email};
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch) => {
   return {logout() {
     dispatch(logout());
     dispatch(stopKeepAlive());

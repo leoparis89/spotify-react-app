@@ -2,7 +2,7 @@ import {storage} from '../storage/storage';
 import {getCurrentEpochInSec} from '../utils/date';
 
 export const oAuthLogin = (opt = {}) => {
-  return new Promise ((resolve, reject) => {
+  return new Promise ((resolve) => {
     const client_id = '72d87e0820ae4f2e8794d583658d7d45'; // Your client id
     const redirect_uri = window.location.origin + '/proxy';
   
@@ -32,7 +32,7 @@ export const oAuthLogin = (opt = {}) => {
         console.warn('this data didn\'t contain a hash...', hash, e);
       }
 
-      if (hash && hash.type == 'access_token') {
+      if (hash && hash.type === 'access_token') {
         console.log('access ok');
         storage.setToken(hash.access_token);
         const epochDateInSec = getCurrentEpochInSec();

@@ -7,7 +7,7 @@ class Proxy extends React.Component {
     var hash = {};
     this.props.location.hash.replace(/^#\/?/, '').split('&').forEach(function (kv) {
       var spl = kv.indexOf('=');
-      if (spl != -1) {
+      if (spl !== -1) {
         hash[kv.substring(0, spl)] = decodeURIComponent(kv.substring(spl + 1));
       }
     });

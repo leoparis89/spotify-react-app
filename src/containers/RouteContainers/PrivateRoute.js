@@ -4,13 +4,13 @@ import {Route, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   return {
     isloggedIn: state.session.isLoggedIn
   };  
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch) => {
   return {
   };
 };
@@ -22,12 +22,11 @@ class PrivateRoute extends React.Component {
     return (
       <Route
         {...rest}
-        render={(props) => {      
-          const foo = isloggedIn ?
+        render={(props) => {
+          return isloggedIn ?
             <div><Navbar /><Component {...props} /></div>
             :
             <Redirect to={{pathname: '/login', state: {from: props.location}}} />;
-          return foo;
         }}
       />
     );

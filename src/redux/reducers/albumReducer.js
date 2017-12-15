@@ -14,6 +14,10 @@ export function album(state = initialState, action) {
   {
     return {...action.albumData, loading: false};
   }
+  case GET_ALBUM_FAILED:
+  {
+    return state;
+  }
   default:
     return state;
   }

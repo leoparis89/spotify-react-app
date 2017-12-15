@@ -15,7 +15,7 @@ export function getProfile() {
     getUserInfo().then((profile)=> {
       dispatch(getProfileComplete(profile));
     },
-    err => {
+    () => {
       dispatch(getProfileFailed());
     });
   };
@@ -27,7 +27,7 @@ export function getSavedAlbums() {
     getSavedAlbumsFunc().then((albums)=> {
       dispatch(getSavedAlbumsComplete(albums));
     },
-    err => {
+    () => {
       dispatch(getSavedAlbumsFailed());
     });
   };
