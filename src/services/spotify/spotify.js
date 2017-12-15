@@ -35,6 +35,15 @@ export const _flatenImages = (items) => {
   return items.map((item) => _setImage(item));
 };
 
+export const _formatSavedAlbum = (item) => {
+  const {added_at, album} = item;
+  return {added_at, ...album};
+};
+
+export const _onSavedAlbumsReceived = () => {
+  
+};
+
 export const _setImage = (el) => {
   const [image] = el.images;
   delete el.images;
@@ -115,7 +124,12 @@ export const getSavedAlbums = () => {
   return authGet(_buildGetSavedAlbumstUrl())
     .then(extractData)
     .then((res) => {
-      return res.items;
+      let {items} = res;
+      items = items
+        .map(i => _formatSavedAlbum(i))
+        .map(i => _setImage(i));
+      debugger;
+      return items;
     });
 };
 
