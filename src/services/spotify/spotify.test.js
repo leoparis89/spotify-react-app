@@ -1,6 +1,6 @@
 import {
   _buildGetAlbumsUrl, _buildGetAlbumUrl, _buildGetArtistUrl, _buildGetSavedAlbumstUrl, _buildSaveAlbumtUrl,
-  _buildSearchArtistUrl, _formatSavedAlbum, _setImage
+  _buildSearchArtistUrl, _formatSavedAlbum, _setImage, getAllData
 } from './spotify';
 
 
@@ -47,3 +47,23 @@ test('format saved album should format album corectly', () => {
   expect(_formatSavedAlbum({added_at: 'bar', album: {id:'a'}})).toEqual( {added_at: 'bar', id:'a'});
 });
 
+
+
+const getMockData = (offset) => {
+  const total = 20;
+  const promise = Promise.resolve({items: [
+    {foo: 'bar'},
+    {foo: 'bar'},
+    {foo: 'bar'},
+    {foo: 'bar'},
+    {foo: 'bar'},
+  ], offset, total});
+  return promise;
+};
+
+test('get all data should should get the totality of elements', () => {
+  getAllData(getMockData).then(data => {
+    expect(data[0]).toEqual({foo: 'bar'});
+    expect(data.length).toEqual(20);
+  });
+});

@@ -121,14 +121,29 @@ export const saveAlbum = (id) => {
     });
 };
 
+export async function getAllData(cb) {
+  let totalItems = [];
+  let total;
+  let offset = 0;
+  do {
+    const {total: tmpTotal, offset: tmpOffset, items} = await cb(offset);
+    total = tmpTotal;
+    offset = tmpOffset + 20;
+    totalItems = [...totalItems, ...items];
+  } while (totalItems.length < total);
+  return Promise.resolve(totalItems);
+}
+
 export const getSavedAlbums = (offset) => {
   return authGet(_buildGetSavedAlbumstUrl(offset))
     .then(extractData)
-    .then((res) => {
-      let {items, offset, total} = res;
-      items = items
+    .then((data) => (
+      {...data, items: data.items
         .map(i => _formatSavedAlbum(i))
-        .map(i => _setImage(i));
+        .map(i => _setImage(i))
+      }))
+    .then(data => {
+      const {items, offset, total} = data;
       return {items, offset, total};
     });
 };
