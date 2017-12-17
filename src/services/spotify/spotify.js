@@ -27,8 +27,9 @@ export const _buildSaveAlbumtUrl = (id) => {
   return `${baseUrl}/me/albums?ids=${id}`;
 };
 
-export const _buildGetSavedAlbumstUrl = () => {
-  return `${baseUrl}/me/albums`;
+export const _buildGetSavedAlbumstUrl = (offset = 0) => {
+  const params = {offset};
+  return `${baseUrl}/me/albums?${encodeQueryData(params)}`;
 };
 
 export const _flatenImages = (items) => {
@@ -120,16 +121,15 @@ export const saveAlbum = (id) => {
     });
 };
 
-export const getSavedAlbums = () => {
-  return authGet(_buildGetSavedAlbumstUrl())
+export const getSavedAlbums = (offset) => {
+  return authGet(_buildGetSavedAlbumstUrl(offset))
     .then(extractData)
     .then((res) => {
-      let {items} = res;
+      let {items, offset, total} = res;
       items = items
         .map(i => _formatSavedAlbum(i))
         .map(i => _setImage(i));
-      debugger;
-      return items;
+      return {items, offset, total};
     });
 };
 

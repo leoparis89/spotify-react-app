@@ -32,8 +32,8 @@ test('Spotify functions call the right urls', () => {
     'https://api.spotify.com/v1/me/albums?ids=fff'
   );
 
-  expect(_buildGetSavedAlbumstUrl('fff')).toEqual(
-    'https://api.spotify.com/v1/me/albums'
+  expect(_buildGetSavedAlbumstUrl(3)).toEqual(
+    'https://api.spotify.com/v1/me/albums?offset=3'
   );
 });
 
