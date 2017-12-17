@@ -134,7 +134,7 @@ export async function getAllData(cb) {
   return Promise.resolve(totalItems);
 }
 
-export const getSavedAlbums = (offset) => {
+export const getSavedAlbumsByOffset = (offset) => {
   return authGet(_buildGetSavedAlbumstUrl(offset))
     .then(extractData)
     .then((data) => (
@@ -147,6 +147,8 @@ export const getSavedAlbums = (offset) => {
       return {items, offset, total};
     });
 };
+
+export const getSavedAlbums = () => getAllData(getSavedAlbumsByOffset);
 
 export const getArtistAlbums = id => authGet(`https://api.spotify.com/v1/artists/${id}/albums`);
 const extractData = res => res.data;
