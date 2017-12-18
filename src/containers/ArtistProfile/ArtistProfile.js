@@ -5,10 +5,11 @@ import {getAlbums, getArtist, saveAlbum} from '../../redux/actions/artistActions
 import {onBottomScroll} from '../../services/utils/scroll';
 
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = ({artist, profile: {savedAlbums}}, ownProps) => {
   return {
     id: ownProps.match.params.artistId,
-    ...state.artist
+    ...artist,
+    savedAlbums
     // artist: state.search.artists.find((artist) => {
     //   return artist.id === ownProps.match.params.artistId;
     // })

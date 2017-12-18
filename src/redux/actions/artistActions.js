@@ -2,6 +2,7 @@ import {getAlbums as getAlbumsFunc,
   getArtist as getArtistFunc,
   saveAlbum as saveAlbumFunc} from '../../services/spotify/spotify';
 import {notifyInfo} from '../../services/utils/toast';
+import {getSavedAlbums} from "./profileActions";
 export const GET_ALBUMS_START = 'GET_ALBUMS_START';
 export const GET_ALBUMS_COMPLETE = 'GET_ALBUMS_COMPLETE';
 export const GET_ALBUMS_FAILED = 'GET_ALBUMS_FAILED';
@@ -38,6 +39,7 @@ export function saveAlbum(id) {
     saveAlbumFunc(id)
       .then(() => {
         notifyInfo('album saved!');
+        dispatch(getSavedAlbums());
         dispatch(saveAlbumComplete());
       })
       .catch(() => {

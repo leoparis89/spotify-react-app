@@ -8,7 +8,7 @@ const ArtistProfile = (props) => {
     backgroundSize: 'cover'
   };
 
-  const {artist, albums, loading, saveAlbum} = props;
+  const {artist, albums, loading, saveAlbum, savedAlbums} = props;
   const {followers} = artist;
   return (
 
@@ -27,7 +27,12 @@ const ArtistProfile = (props) => {
       </div>
       <div className="row">
         {albums.map(album => {
-          return <AlbumCard key={album.id} album={album} saveAlbum={saveAlbum} />;
+          return <AlbumCard
+            key={album.id}
+            album={album}
+            saveAlbum={saveAlbum}
+            isSaved={!!savedAlbums[album.id]}
+          />;
         })}
       </div>
       {loading && <Spiner />}

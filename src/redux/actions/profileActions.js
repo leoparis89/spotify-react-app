@@ -25,7 +25,6 @@ export function getSavedAlbums() {
   return dispatch => {
     dispatch(getSavedAlbumsStart());
     getSavedAlbumsFunc().then((savedAlbums)=> {
-      console.log('user saved albums: ', savedAlbums);
       dispatch(getSavedAlbumsComplete(savedAlbums));
     },
     () => {
