@@ -24,9 +24,9 @@ export function getProfile() {
 export function getSavedAlbums() {
   return dispatch => {
     dispatch(getSavedAlbumsStart());
-    getSavedAlbumsFunc().then((albums)=> {
-      console.log('user saved albums: ', albums);
-      dispatch(getSavedAlbumsComplete(albums));
+    getSavedAlbumsFunc().then((savedAlbums)=> {
+      console.log('user saved albums: ', savedAlbums);
+      dispatch(getSavedAlbumsComplete(savedAlbums));
     },
     () => {
       dispatch(getSavedAlbumsFailed());
@@ -50,8 +50,8 @@ export function getSavedAlbumsStart() {
   return {type: GET_SAVED_ALBUMS_START};
 }
 
-export function getSavedAlbumsComplete(albums) {
-  return {type: GET_SAVED_ALBUMS_COMPLETE, albums};
+export function getSavedAlbumsComplete(savedAlbums) {
+  return {type: GET_SAVED_ALBUMS_COMPLETE, savedAlbums};
 }
 
 export function getSavedAlbumsFailed() {
