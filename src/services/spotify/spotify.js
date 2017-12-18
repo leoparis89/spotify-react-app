@@ -1,5 +1,6 @@
 import {authGet, authPut} from '../authHttp/authHttp';
 import {encodeQueryData} from '../utils/ajax';
+import {normalize} from "../utils/normalize";
 
 const baseUrl= 'https://api.spotify.com/v1';
 
@@ -148,7 +149,9 @@ export const getSavedAlbumsByOffset = (offset) => {
     });
 };
 
-export const getSavedAlbums = () => getAllData(getSavedAlbumsByOffset);
+export const getSavedAlbums = () =>
+  getAllData(getSavedAlbumsByOffset)
+    .then(data => normalize(data));
 
 export const getArtistAlbums = id => authGet(`https://api.spotify.com/v1/artists/${id}/albums`);
 const extractData = res => res.data;
