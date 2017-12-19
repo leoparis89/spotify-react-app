@@ -2,9 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import gravatar from 'gravatar';
 import PropTypes from 'prop-types';
-const Navbar = (props) => {
-  const {id, logout, email, recentlyAddedAlbums} = props;
-
+const Navbar = ({id, logout, email, recentlyAddedAlbums}) => {
   return (
     <nav className="navbar navbar-dark bg-dark">
       <a className="navbar-brand" href="#">Spotify App</a>
@@ -37,5 +35,6 @@ export default Navbar;
 Navbar.propTypes = {
   id: PropTypes.string,
   logout: PropTypes.func,
-  email: PropTypes.string
+  email: PropTypes.string,
+  recentlyAddedAlbums: PropTypes.number
 };
