@@ -13,7 +13,7 @@ import {isLoggedIn} from '../../services/authentication/authentication';
 import {getProfile} from '../../redux/actions/profileActions';
 import {startLogoutTimer} from '../../redux/actions/sessionActions';
 import PropTypes from 'prop-types';
-import {MyAlbums} from '../../components/MyAlbums/MyAlbums';
+import MyAlbums from '../../containers/MyAlbums/MyAlbums';
 
 const mapStateToProps = () => {
   return {

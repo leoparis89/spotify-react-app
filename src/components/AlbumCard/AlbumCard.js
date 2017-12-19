@@ -9,10 +9,10 @@ const likeBtn = {
 
 const AlbumCard = (props) => {
   const {album, isSaved} = props;
-
+  let {saveAlbum, removeAlbum} = props;
   const {name, image, album_type, id} = album;
-  const saveAlbum = props.saveAlbum.bind(null, id);
-  const removeAlbum = props.removeAlbum.bind(null, id);
+  saveAlbum = saveAlbum && saveAlbum.bind(null, id);
+  removeAlbum = removeAlbum && removeAlbum.bind(null, id);
 
   return (
     <div className="col-md-3">
