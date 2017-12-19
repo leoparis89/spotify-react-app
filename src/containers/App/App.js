@@ -13,6 +13,7 @@ import {isLoggedIn} from '../../services/authentication/authentication';
 import {getProfile} from '../../redux/actions/profileActions';
 import {startLogoutTimer} from '../../redux/actions/sessionActions';
 import PropTypes from 'prop-types';
+import {MyAlbums} from '../../components/MyAlbums/MyAlbums';
 
 const mapStateToProps = () => {
   return {
@@ -44,10 +45,10 @@ class App extends Component {
       <Router>
         <div className="App">
           <Switch>
-            <PublicRoute path='/login' component={Login}
-            />
+            <PublicRoute path='/login' component={Login}/>
             <PublicRoute path='/proxy' component={Proxy} />
             <PrivateRoute path='/search' component={SearchArtist} />
+            <PrivateRoute path='/my-albums' component={MyAlbums} />
             <PrivateRoute path='/artist/:artistId' component={ArtistProfile} />
             <PrivateRoute path='/album/:albumId' component={Album} />
             <Redirect to='/search' />

@@ -13,6 +13,9 @@ const Navbar = (props) => {
           <Link className="nav-link" to="/search">Search</Link>
         </li>
         <li className="nav-item">
+          <Link className="nav-link" to="/my-albums">My Albums</Link>
+        </li>
+        <li className="nav-item">
           <Link className="nav-link" to="/profile">{id}</Link>
         </li>
         <li className="nav-item">
