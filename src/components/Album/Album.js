@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 const Artist = (props) => {
 
   const {id, name, release_date, label, album_type, artists, image, tracks} = props;
@@ -26,3 +28,14 @@ const Artist = (props) => {
 };
 
 export default Artist;
+
+Artist.propTypes = {
+  id: PropTypes.string,
+  name: PropTypes.string,
+  release_date: PropTypes.string,
+  label: PropTypes.string,
+  album_type: PropTypes.string,
+  artists: PropTypes.array,
+  image: PropTypes.string,
+  tracks: PropTypes.array
+};

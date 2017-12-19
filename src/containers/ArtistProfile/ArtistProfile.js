@@ -3,7 +3,7 @@ import ArtistProfile from '../../components/ArtistProfile/ArtistProfile';
 import {connect} from 'react-redux';
 import {getAlbums, getArtist, removeAlbum, saveAlbum} from '../../redux/actions/artistActions';
 import {onBottomScroll} from '../../services/utils/scroll';
-
+import PropTypes from 'prop-types';
 
 const mapStateToProps = ({artist, profile: {savedAlbums}}, ownProps) => {
   return {
@@ -66,3 +66,13 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(ArtistProfileContainer);
+
+ArtistProfileContainer.propTypes = {
+  id: PropTypes.string,
+  getAlbums: PropTypes.func,
+  getArtist: PropTypes.func,
+  loading: PropTypes.bool,
+  albums: PropTypes.array,
+  total: PropTypes.number,
+  offset: PropTypes.number
+};

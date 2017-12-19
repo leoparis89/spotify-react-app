@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
-import {pointer} from "../style/convinience";
+import {pointer} from '../style/convinience';
 
 const likeBtn = {
   paddingBottom: '8px'
-}
+};
 
 const AlbumCard = (props) => {
   const {album, isSaved} = props;

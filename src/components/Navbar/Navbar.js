@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import gravatar from 'gravatar';
-
+import PropTypes from 'prop-types';
 const Navbar = (props) => {
   const {id, logout, email} = props;
 
@@ -28,3 +28,9 @@ const Navbar = (props) => {
 
 
 export default Navbar;
+
+Navbar.propTypes = {
+  id: PropTypes.string,
+  logout: PropTypes.func,
+  email: PropTypes.string
+};

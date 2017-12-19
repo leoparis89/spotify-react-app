@@ -1,6 +1,7 @@
 import React from 'react';
 import AlbumCard from '../AlbumCard/AlbumCard';
 import {Spiner} from '../Spinner/Spinner';
+import PropTypes from 'prop-types';
 const ArtistProfile = (props) => {
 
   const divStyle = {
@@ -42,5 +43,14 @@ const ArtistProfile = (props) => {
 };
 
 export default ArtistProfile;
+
+ArtistProfile.propTypes = {
+  artist: PropTypes.object,
+  albums: PropTypes.array,
+  loading: PropTypes.bool,
+  saveAlbum: PropTypes.func,
+  removeAlbum: PropTypes.func,
+  savedAlbums: PropTypes.object
+};
 
 

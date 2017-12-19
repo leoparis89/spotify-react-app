@@ -2,6 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {getAlbum} from '../../redux/actions/albumActions';
 import Album from '../../components/Album/Album';
+import PropTypes from 'prop-types';
+
 const mapStateToProps = (state, ownProps) => {
   return {
     ...state.album,
@@ -34,3 +36,8 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(AlbumContainer);
+
+AlbumContainer.propTypes = {
+  getAlbum: PropTypes.func,
+  id: PropTypes.string
+};

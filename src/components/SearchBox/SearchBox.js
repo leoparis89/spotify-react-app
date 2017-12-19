@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class SearchBox extends React.Component {
     searchArtist = (e) => {
@@ -13,3 +14,7 @@ class SearchBox extends React.Component {
 }
 
 export default SearchBox;
+
+SearchBox.propTypes = {
+  searchArtist: PropTypes.func
+};

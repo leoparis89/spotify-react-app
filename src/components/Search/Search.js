@@ -63,5 +63,6 @@ Search.propTypes = {
   query: PropTypes.string,
   offset: PropTypes.number,
   loading: PropTypes.bool,
-  total: PropTypes.number
+  total: PropTypes.number,
+  artists: PropTypes.array
 };

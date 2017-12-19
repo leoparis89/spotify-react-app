@@ -12,8 +12,9 @@ import {connect} from 'react-redux';
 import {isLoggedIn} from '../../services/authentication/authentication';
 import {getProfile} from '../../redux/actions/profileActions';
 import {startLogoutTimer} from '../../redux/actions/sessionActions';
+import PropTypes from 'prop-types';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = () => {
   return {
   };
 };
@@ -62,3 +63,8 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(App);
+
+App.propTypes = {
+  startLogoutTimer: PropTypes.func,
+  getProfile: PropTypes.func
+};

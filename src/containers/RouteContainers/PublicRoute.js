@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
-
+import PropTypes from 'prop-types';
 
 const mapStateToProps = (state) => {
   return {
@@ -9,7 +9,7 @@ const mapStateToProps = (state) => {
   };  
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = () => {
   return {
   };
 };
@@ -36,3 +36,8 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(PublicRoute);
+
+PublicRoute.propTypes = {
+  component: PropTypes.object,
+  isloggedIn: PropTypes.bool
+};
