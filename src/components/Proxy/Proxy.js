@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Proxy extends React.Component {
   state = {}
@@ -32,3 +33,11 @@ class Proxy extends React.Component {
 }
 
 export default Proxy;
+
+Proxy.propTypes = {
+  location: PropTypes.shape(
+    {
+      hash: PropTypes.string
+    }
+  )
+};

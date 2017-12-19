@@ -57,11 +57,11 @@ class Search extends React.Component {
 export default Search;
 
 Search.propTypes = {
-  setQuery
-  : PropTypes.func,
+  setQuery: PropTypes.func,
   searchArtists: PropTypes.func,
   results: PropTypes.array,
   query: PropTypes.string,
   offset: PropTypes.number,
-  loading: PropTypes.bool
+  loading: PropTypes.bool,
+  total: PropTypes.number
 };

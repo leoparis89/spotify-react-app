@@ -47,7 +47,10 @@ AlbumCard.propTypes = {
     name: PropTypes.string.isRequired,
     image: PropTypes.string,
     album_type: PropTypes.string,
-  })
+  }),
+  isSaved: PropTypes.bool,
+  saveAlbum: PropTypes.func,
+  removeAlbum: PropTypes.func
 };
 
 export default AlbumCard;
