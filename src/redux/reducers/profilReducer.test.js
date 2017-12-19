@@ -3,6 +3,7 @@ import {getProfileComplete, getSavedAlbumsComplete} from '../actions/profileActi
 
 test('it should create initial state', () => {
   const expected = {
+    savedAlbums: {}
   };
 
   expect(profile(undefined, {})).toEqual(expected);
