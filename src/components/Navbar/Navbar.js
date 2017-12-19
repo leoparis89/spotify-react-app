@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import gravatar from 'gravatar';
 import PropTypes from 'prop-types';
 const Navbar = (props) => {
-  const {id, logout, email} = props;
+  const {id, logout, email, recentlyAddedAlbums} = props;
 
   return (
     <nav className="navbar navbar-dark bg-dark">
@@ -13,7 +13,9 @@ const Navbar = (props) => {
           <Link className="nav-link" to="/search">Search</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/my-albums">My Albums</Link>
+          <Link className="nav-link" to="/my-albums">My Albums
+            {recentlyAddedAlbums ? <span className="badge badge-light">{recentlyAddedAlbums}</span> : ''}
+          </Link>
         </li>
         <li className="nav-item">
           <Link className="nav-link" to="/profile">{id}</Link>
