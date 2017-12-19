@@ -38,6 +38,6 @@ export default connect(
 )(PublicRoute);
 
 PublicRoute.propTypes = {
-  component: PropTypes.object,
+  component: PropTypes.func,
   isloggedIn: PropTypes.bool
 };

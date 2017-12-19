@@ -39,6 +39,6 @@ export default connect(
 )(PrivateRoute);
 
 PrivateRoute.propTypes = {
-  component: PropTypes.object,
+  component: PropTypes.func,
   isloggedIn: PropTypes.bool
 };
