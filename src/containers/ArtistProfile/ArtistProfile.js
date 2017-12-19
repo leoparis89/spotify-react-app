@@ -1,7 +1,7 @@
 import React from 'react';
 import ArtistProfile from '../../components/ArtistProfile/ArtistProfile';
 import {connect} from 'react-redux';
-import {getAlbums, getArtist, saveAlbum} from '../../redux/actions/artistActions';
+import {getAlbums, getArtist, removeAlbum, saveAlbum} from '../../redux/actions/artistActions';
 import {onBottomScroll} from '../../services/utils/scroll';
 
 
@@ -26,6 +26,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     saveAlbum: (id) => {
       dispatch(saveAlbum(id));
+    },
+    removeAlbum: (id) => {
+      dispatch(removeAlbum(id));
     }
   };
 };

@@ -1,6 +1,6 @@
-import {authGet, authPut} from '../authHttp/authHttp';
+import {authDel, authGet, authPut} from '../authHttp/authHttp';
 import {encodeQueryData} from '../utils/ajax';
-import {normalize} from "../utils/normalize";
+import {normalize} from '../utils/normalize';
 
 const baseUrl= 'https://api.spotify.com/v1';
 
@@ -116,6 +116,14 @@ export const getUserInfo = () => {
 
 export const saveAlbum = (id) => {
   return authPut(_buildSaveAlbumtUrl(id))
+    .then(() => {
+    })
+    .catch(() => {
+    });
+};
+
+export const removeAlbum = (id) => {
+  return authDel(_buildSaveAlbumtUrl(id))
     .then(() => {
     })
     .catch(() => {

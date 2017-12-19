@@ -3,12 +3,12 @@ import AlbumCard from '../AlbumCard/AlbumCard';
 import {Spiner} from '../Spinner/Spinner';
 const ArtistProfile = (props) => {
 
-  var divStyle = {
+  const divStyle = {
     backgroundImage: 'url(' + props.artist.image + ')',
     backgroundSize: 'cover'
   };
 
-  const {artist, albums, loading, saveAlbum, savedAlbums} = props;
+  const {artist, albums, loading, saveAlbum, removeAlbum, savedAlbums} = props;
   const {followers} = artist;
   return (
 
@@ -31,6 +31,7 @@ const ArtistProfile = (props) => {
             key={album.id}
             album={album}
             saveAlbum={saveAlbum}
+            removeAlbum={removeAlbum}
             isSaved={!!savedAlbums[album.id]}
           />;
         })}

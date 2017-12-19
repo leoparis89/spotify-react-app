@@ -1,8 +1,10 @@
 import {getAlbums as getAlbumsFunc,
   getArtist as getArtistFunc,
-  saveAlbum as saveAlbumFunc} from '../../services/spotify/spotify';
+  saveAlbum as saveAlbumFunc,
+  removeAlbum as removeAlbumFunc
+} from '../../services/spotify/spotify';
 import {notifyInfo} from '../../services/utils/toast';
-import {getSavedAlbums} from "./profileActions";
+import {getSavedAlbums} from './profileActions';
 export const GET_ALBUMS_START = 'GET_ALBUMS_START';
 export const GET_ALBUMS_COMPLETE = 'GET_ALBUMS_COMPLETE';
 export const GET_ALBUMS_FAILED = 'GET_ALBUMS_FAILED';
@@ -12,6 +14,9 @@ export const GET_ARTIST_FAILED = 'GET_ARTIST_FAILED';
 export const SAVE_ALBUM_START = 'SAVE_ALBUM_START';
 export const SAVE_ALBUM_COMPLETE = 'SAVE_ALBUM_COMPLETE';
 export const SAVE_ALBUM_FAILED = 'SAVE_ALBUM_FAILED';
+export const REMOVE_ALBUM_START = 'REMOVE_ALBUM_START';
+export const REMOVE_ALBUM_COMPLETE = 'REMOVE_ALBUM_COMPLETE';
+export const REMOVE_ALBUM_FAILED = 'REMOVE_ALBUM_FAILED';
 
 
 export function getAlbums(artistId, offset) {
@@ -44,6 +49,20 @@ export function saveAlbum(id) {
       })
       .catch(() => {
         dispatch(saveAlbumFailed());
+      });
+  };
+}
+
+export function removeAlbum(id) {
+  return dispatch => {
+    dispatch(removeAlbumStart());
+    removeAlbumFunc(id)
+      .then(() => {
+        dispatch(getSavedAlbums());
+        dispatch(removeAlbumComplete());
+      })
+      .catch(() => {
+        dispatch(removeAlbumFailed());
       });
   };
 }
@@ -82,4 +101,16 @@ export function saveAlbumComplete() {
 
 export function saveAlbumFailed() {
   return {type: SAVE_ALBUM_FAILED};
+}
+
+export function removeAlbumStart(id) {
+  return {type: REMOVE_ALBUM_START, id};
+}
+
+export function removeAlbumComplete() {
+  return {type: REMOVE_ALBUM_COMPLETE};
+}
+
+export function removeAlbumFailed() {
+  return {type: REMOVE_ALBUM_FAILED};
 }

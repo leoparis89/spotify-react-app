@@ -11,3 +11,7 @@ export const authPut = (url, data = {}) => {
   return axios.put(url, data, buildHeaders());
 };
 
+export const authDel = (url) => {
+  return axios.delete(url, buildHeaders());
+};
+

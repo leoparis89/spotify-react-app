@@ -1,11 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
+import {pointer} from "../style/convinience";
+
+const likeBtn = {
+  paddingBottom: '8px'
+}
+
 const AlbumCard = (props) => {
   const {album, isSaved} = props;
 
   const {name, image, album_type, id} = album;
   const saveAlbum = props.saveAlbum.bind(null, id);
+  const removeAlbum = props.removeAlbum.bind(null, id);
 
   return (
     <div className="col-md-3">
@@ -25,9 +32,9 @@ const AlbumCard = (props) => {
             <h5><span className="badge badge-info">{album_type}</span></h5>
           </div>
         </Link>
-        {isSaved ? <i onClick={saveAlbum} className="fa fa-heart" aria-hidden="true"></i>
+        {isSaved ? <i onClick={removeAlbum} style={{...pointer, ...likeBtn}} className="fa fa-heart" aria-hidden="true"></i>
           :
-          <i onClick={saveAlbum} className="fa fa-heart-o" aria-hidden="true"></i>
+          <i onClick={saveAlbum} style={{...pointer, ...likeBtn}} className="fa fa-heart-o" aria-hidden="true"></i>
         }
       </div>
     </div>
