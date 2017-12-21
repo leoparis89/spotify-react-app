@@ -6,19 +6,14 @@ const ArtistCard = (props) => {
 
   const {name, image, popularity} = props.artist;
   return (
-
     <div className="col-md-3">
       <Link to={'artist/' + props.artist.id}>
         <div className="card">
-          {image ?
-            <img className="card-img-top vignette"
+          <div className="image">
+            <img className=""
               style={{objectFit: 'cover'}}
               src={image} alt="Card image cap" />
-            :
-            <div className="vignette">
-              <i className="fa fa-music" style={{fontSize: '200px'}}></i>
-            </div>
-          }
+          </div>
           <h3 className="card-body">{name}</h3>
           <p><span className="badge badge-pill badge-primary"> Popularity: {popularity}</span></p>
         </div>
