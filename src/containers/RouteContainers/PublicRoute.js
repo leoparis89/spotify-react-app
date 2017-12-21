@@ -3,26 +3,18 @@ import {Route, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
-const mapStateToProps = (state) => {
-  return {
-    isloggedIn: state.session.isLoggedIn
-  };  
-};
 
-const mapDispatchToProps = () => {
-  return {
-  };
-};
+const mapStateToProps = ({session: {isLoggedIn}}) => ({isLoggedIn});
+
 
 class PublicRoute extends React.Component {
   render() {
-    
-    const {component: Component, isloggedIn, ...rest} = this.props;
+    const {component: Component, isLoggedIn, ...rest} = this.props;
     return (
       <Route
         {...rest}
         render={(props) =>
-          !isloggedIn ?
+          !isLoggedIn ?
             <Component {...props} />
             :
             <Redirect to={{pathname: '/search', state: {from: props.location}}} />}
@@ -33,11 +25,10 @@ class PublicRoute extends React.Component {
 
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(PublicRoute);
 
 PublicRoute.propTypes = {
   component: PropTypes.func,
-  isloggedIn: PropTypes.bool
+  isLoggedIn: PropTypes.bool
 };
