@@ -21,7 +21,8 @@
     "build": "webpack -p && cp public/index.html build/",
     "postinstall": "yarn build",
     "start": "node server/app.js",
-    "test": "jest --watch",
+    "test": "jest",
+    "test:w": "jest --watch",
     "snap": "jest --updateSnapshot"
   },
   "dependencies": {
