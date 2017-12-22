@@ -12,17 +12,11 @@ exports[`Artist card renders correctly 1`] = `
       className="card"
     >
       <div
-        className="image"
+        className="square-image-container"
       >
         <img
           alt="Card image cap"
-          className=""
           src="htpp://foobar"
-          style={
-            Object {
-              "objectFit": "cover",
-            }
-          }
         />
       </div>
       <h3
