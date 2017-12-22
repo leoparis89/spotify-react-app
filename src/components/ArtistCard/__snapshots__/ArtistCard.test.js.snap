@@ -11,16 +11,20 @@ exports[`Artist card renders correctly 1`] = `
     <div
       className="card"
     >
-      <img
-        alt="Card image cap"
-        className="card-img-top vignette"
-        src="htpp://foobar"
-        style={
-          Object {
-            "objectFit": "cover",
+      <div
+        className="image"
+      >
+        <img
+          alt="Card image cap"
+          className=""
+          src="htpp://foobar"
+          style={
+            Object {
+              "objectFit": "cover",
+            }
           }
-        }
-      />
+        />
+      </div>
       <h3
         className="card-body"
       >
