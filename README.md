@@ -1,4 +1,5 @@
 # Spotify React App :guitar: :guitar::guitar:
+![travis](https://travis-ci.org/leoparis89/spotify-react-app.svg?branch=master)
 
 An app created with react and redux that connects to the spotify API and allows you to play around. :tropical_drink:
 
