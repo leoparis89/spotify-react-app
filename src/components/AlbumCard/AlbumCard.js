@@ -7,9 +7,7 @@ const likeBtn = {
   paddingBottom: '8px'
 };
 
-const AlbumCard = (props) => {
-  const {album, isSaved} = props;
-  let {saveAlbum, removeAlbum} = props;
+const AlbumCard = ({album, isSaved, saveAlbum, removeAlbum}) => {
   const {name, image, album_type, id} = album;
   saveAlbum = saveAlbum && saveAlbum.bind(null, id);
   removeAlbum = removeAlbum && removeAlbum.bind(null, id);
@@ -18,15 +16,15 @@ const AlbumCard = (props) => {
     <div className="col-md-3">
       <div className="card">
         <Link to={'/album/' + id}>
-          {image ?
-            <img className="card-img-top vignette"
-              style={{objectFit: 'cover'}}
-              src={image} alt="Card image cap" />
-            :
-            <div className="vignette">
+          <div className="square-image-container">
+            {image ?
+              <img className=""
+                style={{objectFit: 'cover'}}
+                src={image} alt="Card image cap" />
+              :
               <i className="fa fa-music" style={{fontSize: '200px'}}></i>
-            </div>
-          }
+            }
+          </div>
           <div className="card-block">
             <h4 className="card-title">{name}</h4>
             <h5><span className="badge badge-info">{album_type}</span></h5>

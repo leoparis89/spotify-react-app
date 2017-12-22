@@ -10,8 +10,14 @@ const ArtistCard = (props) => {
       <Link to={'artist/' + props.artist.id}>
         <div className="card">
           <div className="square-image-container">
-            <img className=""
-              src={image} alt="Card image cap" />
+            {
+              image ?
+                <img className=""
+                  src={image} alt="Card image cap" />
+                :
+                <i className="fa fa-music" style={{fontSize: '200px'}}></i>
+            }
+
           </div>
           <h3 className="card-body">{name}</h3>
           <p><span className="badge badge-pill badge-primary"> Popularity: {popularity}</span></p>
