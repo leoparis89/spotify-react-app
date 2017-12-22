@@ -9,9 +9,8 @@ const ArtistCard = (props) => {
     <div className="col-md-3">
       <Link to={'artist/' + props.artist.id}>
         <div className="card">
-          <div className="image">
+          <div className="square-image-container">
             <img className=""
-              style={{objectFit: 'cover'}}
               src={image} alt="Card image cap" />
           </div>
           <h3 className="card-body">{name}</h3>
