@@ -12,7 +12,9 @@ const Navbar = ({id, logout, email, recentlyAddedAlbums}) => {
         </li>
         <li className="nav-item">
           <Link className="nav-link" to="/my-albums">My Albums
-            {recentlyAddedAlbums ? <span className="badge badge-light">{recentlyAddedAlbums}</span> : ''}
+            {recentlyAddedAlbums ?
+              <span className="badge badge-danger" style={{marginLeft: '1em'}}>{recentlyAddedAlbums}</span>
+              : ''}
           </Link>
         </li>
         <li className="nav-item">
