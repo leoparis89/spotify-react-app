@@ -10,14 +10,14 @@ const Artist = (props) => {
     <div>
       <div className="container">
         <div className="row" style={{marginTop: '40px'}}>
-          <div className="col-6">
+          <div className="col-md-6">
             <img src={image}
               className="img-fluid" style={{width:'50%'}}
               alt={name} />
             <h3>{name}  </h3>
             <h4><span className="badge badge-pill badge-primary">{label}</span></h4>
           </div>
-          <div className="col-6">
+          <div className="col-md-6">
             <div>
               <iframe src={url} width="100%" height="500px" frameBorder="0" allowTransparency="true"></iframe>
             </div>
