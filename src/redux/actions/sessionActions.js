@@ -9,6 +9,8 @@ export const START_KEEP_ALIVE = 'START_KEEP_ALIVE';
 export const STOP_KEEP_ALIVE = 'STOP_KEEP_ALIVE';
 import {getProfile} from './profileActions';
 import {getCurrentEpochInSec} from '../../services/utils/date';
+import {storage} from '../../services/storage/storage';
+import { initPlayer } from '../../services/player/player'
 
 export function login(opt) {
   return dispatch => {
@@ -17,6 +19,9 @@ export function login(opt) {
       .then(()=> {
         dispatch(loginComplete());
         
+        const token = storage.getToken();
+        initPlayer(token);
+
         dispatch(startLogoutTimer());
         dispatch(getProfile());
       })

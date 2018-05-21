@@ -14,9 +14,16 @@ export const oAuthLogin = (opt = {}) => {
     }
   
     let url = getLoginURL([
-      'user-read-email', 'user-library-modify', 'user-library-read'
+      'user-read-email',
+      'user-library-modify',
+      'user-library-read',
+      'user-library-modify',
+      'streaming',
+      'user-read-birthdate',
+      'user-read-email',
+      'user-read-private'
     ]);
-  
+
     let width = 450,
       height = 730,
       left = (screen.width / 2) - (width / 2),
