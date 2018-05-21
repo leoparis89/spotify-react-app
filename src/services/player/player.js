@@ -1,35 +1,24 @@
 import {storage} from '../storage/storage';
-
-let playerReady = false;
-
-//
-// window.onSpotifyWebPlaybackSDKReady = () => {
-//   // const token = storage.getToken();
-//   playerReady = true;
-//   const token = storage.getToken();
-//
-//   if (token) {
-//     initPlayer(token);
-//   }
-//
-// };
-
-export function initPlayWithStorageToken() {
-  const token = storage.getToken();
+import getSDKReadyState from './getSDKReadyState';
 
 
-  // initPlayer(token);
-}
-
-export function initPlayer(token) {
-  //const token = '';
-  const player = new Spotify.Player({
+export const createPlayer = token => getSDKReadyState.then(() =>
+  new Spotify.Player({
     name: 'Web Playback SDK Quick Start Player',
     getOAuthToken: cb => {
       cb(token);
     }
-  });
+  })
+);
 
+export const initPlayer = () => {
+  const token = storage.getToken();
+  createPlayer(token).then(player => {
+    configPlayer(player);
+  });
+};
+
+export function configPlayer(player) {
   // Error handling
   player.addListener('initialization_error', ({message}) => {
     console.error(message);
