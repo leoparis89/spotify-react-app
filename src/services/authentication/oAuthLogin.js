@@ -21,7 +21,8 @@ export const oAuthLogin = (opt = {}) => {
       'streaming',
       'user-read-birthdate',
       'user-read-email',
-      'user-read-private'
+      'user-read-private',
+      'user-read-playback-state'
     ]);
 
     let width = 450,
