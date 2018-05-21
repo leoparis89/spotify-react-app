@@ -4,6 +4,7 @@ import ArtistCard from '../ArtistCard/ArtistCard';
 import PropTypes from 'prop-types';
 import {onBottomScroll} from '../../services/utils/scroll';
 import {Spiner} from '../Spinner/Spinner';
+import Player from '../../containers/Player/Player';
 
 class Search extends React.Component {
   state = {
@@ -36,6 +37,7 @@ class Search extends React.Component {
     const {total, artists, loading} = this.props;
     return (
       <div>
+        <Player/>
         <div className='row'>
           <h1 className='col-md-12'>Search!</h1>
           <div className="input-group input-group-lg col-md-4 offset-md-4">

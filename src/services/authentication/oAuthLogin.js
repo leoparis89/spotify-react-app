@@ -22,7 +22,8 @@ export const oAuthLogin = (opt = {}) => {
       'user-read-birthdate',
       'user-read-email',
       'user-read-private',
-      'user-read-playback-state'
+      'user-read-playback-state',
+      'user-modify-playback-state'
     ]);
 
     let width = 450,
