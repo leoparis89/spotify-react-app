@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {SpotifyReady} from '../../services/player/playerClass';
 //import {initPlayWithStorageToken} from '../../services/player/player';
 
 class Player extends Component {
@@ -6,6 +7,11 @@ class Player extends Component {
 
   componentDidMount() {
     //initPlayWithStorageToken();
+
+    let foo = SpotifyReady;
+    foo.then(res => {
+      debugger;
+    });
   }
 
   render () {

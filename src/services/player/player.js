@@ -2,17 +2,17 @@ import {storage} from '../storage/storage';
 
 let playerReady = false;
 
-
-window.onSpotifyWebPlaybackSDKReady = () => {
-  // const token = storage.getToken();
-  playerReady = true;
-  const token = storage.getToken();
-
-  if (token) {
-    initPlayer(token);
-  }
-
-};
+//
+// window.onSpotifyWebPlaybackSDKReady = () => {
+//   // const token = storage.getToken();
+//   playerReady = true;
+//   const token = storage.getToken();
+//
+//   if (token) {
+//     initPlayer(token);
+//   }
+//
+// };
 
 export function initPlayWithStorageToken() {
   const token = storage.getToken();
