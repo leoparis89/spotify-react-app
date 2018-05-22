@@ -8,11 +8,15 @@ class Player extends Component {
     initPlayer();
   }
 
-  render () {
-    return <div>
-      BAR
-    </div>;
-  }
+   play = () => {
+   }
+
+   render () {
+     return <div>
+       <button onClick={this.play}>Play</button>
+       <button>Pause</button>
+     </div>;
+   }
 }
 
 export default Player;
