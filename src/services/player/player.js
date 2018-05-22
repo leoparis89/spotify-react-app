@@ -1,7 +1,5 @@
-import {storage} from '../storage/storage';
 import getSDKReadyState from './getSDKReadyState';
 
-let player = null;
 
 export const createPlayer = token => getSDKReadyState.then(() =>
   new Spotify.Player({
@@ -12,13 +10,6 @@ export const createPlayer = token => getSDKReadyState.then(() =>
   })
 );
 
-export const initPlayer = () => {
-  const token = storage.getToken();
-  createPlayer(token).then(p => {
-    configPlayer(p);
-    player = p;
-  });
-};
 
 export function configPlayer(player) {
   // Error handling
@@ -53,6 +44,3 @@ export function configPlayer(player) {
   // Connect to the player!
   player.connect();
 }
-
-
-export default player;

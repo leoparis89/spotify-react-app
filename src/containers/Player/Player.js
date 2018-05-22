@@ -1,14 +1,17 @@
 import React, {Component} from 'react';
-import {initPlayer} from '../../services/player/player';
+//import { play } from '../../services/player/playerAction'
+import player from '../../services/player/playerInstance';
+
 
 class Player extends Component {
   state = {}
 
   componentDidMount() {
-    initPlayer();
   }
 
    play = () => {
+    console.log(player);
+
    }
 
    render () {
