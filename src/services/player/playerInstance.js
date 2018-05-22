@@ -7,6 +7,7 @@ export class PlayerClass {
     createPlayer(token).then(player => {
       PlayerClass.instance = player;
       configPlayer(PlayerClass.instance);
+      console.log(PlayerClass.instance._options.id);
     });
   }
 }
