@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 import {getDevices, test} from '../../services/player/playerActions';
+import { PlayerClass } from '../../services/player/playerInstance'
 
 
 class Player extends Component {
   state = {}
 
   componentDidMount() {
+    PlayerClass.Init();
   }
 
    play = () => {

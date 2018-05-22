@@ -17,3 +17,10 @@ export const getDevices = () => {
     console.log(res);
   });
 };
+
+
+export const play = () => {
+  spotifyApi.play((err, res)=> {
+    console.log(res);
+  });
+};

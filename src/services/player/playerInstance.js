@@ -1,14 +1,12 @@
 import {configPlayer, createPlayer} from './funcs/player';
 import {storage} from '../storage/storage';
 
-class Player {
-  constructor () {
+export class PlayerClass {
+  static Init () {
     const token = storage.getToken();
     createPlayer(token).then(player => {
-      this.instance = player;
-      configPlayer(this.instance);
+      PlayerClass.instance = player;
+      configPlayer(PlayerClass.instance);
     });
   }
 }
-
-export default new Player();
