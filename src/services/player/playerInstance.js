@@ -1,4 +1,4 @@
-import {configPlayer, createPlayer} from './player';
+import {configPlayer, createPlayer} from './funcs/player';
 import {storage} from '../storage/storage';
 
 class Player {

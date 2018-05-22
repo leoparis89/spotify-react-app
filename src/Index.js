@@ -1,4 +1,4 @@
-import './services/player/getSDKReadyState';
+import './services/player/funcs/getSDKReadyState';
 
 import React from 'react';
 import ReactDOM from 'react-dom';

@@ -11,7 +11,6 @@ class Player extends Component {
 
    play = () => {
     console.log(player);
-
    }
 
    render () {
