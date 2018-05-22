@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-//import { play } from '../../services/player/playerAction'
-import player from '../../services/player/playerInstance';
+import {getDevices, test} from '../../services/player/playerActions';
 
 
 class Player extends Component {
@@ -10,7 +9,7 @@ class Player extends Component {
   }
 
    play = () => {
-    console.log(player);
+     getDevices();
    }
 
    render () {
